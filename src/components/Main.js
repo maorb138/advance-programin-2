@@ -1,6 +1,7 @@
 import './LogIn.css';
 import Login from './Login';
 import Register from './Register';
+import Home from './Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
@@ -13,7 +14,7 @@ function Main() {
             <div className="main">
                 <Switch>
                     <Route exact path="/">
-                        <div> Home Page </div>
+                        <div> <Home/> </div>
                     </Route>
                     <Route path="/login">
                         <Login/>
@@ -28,3 +29,4 @@ function Main() {
     );
 }
 export default Main;
+
