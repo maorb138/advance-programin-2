@@ -1,0 +1,38 @@
+label{
+    font-size:small;
+}
+.md-4 {
+    width: 60%;
+}
+.inp{
+    width: 70%;
+    background-color: gainsboro;
+    text-align: center;
+    align-self: center;
+}
+.form-floating {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 25% 0;
+}
+#form1{
+    background-color: ghostwhite;
+    font-size:100%;
+    //contain-intrinsic-size:auto;
+}
+
+.btn {
+    width: 40%;
+    margin: 0 30% 0;
+    max-height:100%;
+}
+
+.header1 {
+    margin-top:0px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
