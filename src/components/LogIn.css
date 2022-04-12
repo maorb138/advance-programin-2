@@ -1,0 +1,31 @@
+
+.form-control {
+    width: 50%;
+    background-color:gainsboro;
+    text-align:center;
+    align-self:center;
+}
+.form-floating {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 25% 0;
+
+}
+.login{
+    background-color:ivory;
+}
+.btn {
+    width: 40%;
+    margin: 0 30% 0;
+    max-height: 20%;
+    height: 40px;
+}
+h3 {
+    margin: 5% 27% 0;
+}
+.main {
+    justify-content: center;
+    margin: 5% 25% 0;
+    height:400px ;
+}
