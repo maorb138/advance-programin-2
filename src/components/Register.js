@@ -1,11 +1,32 @@
+import { useState } from 'react';
 import './Register.css';
 
 
-function Register() {
-    const foo = () => {
-        let x = document.getElementById("formFile");
-        console.log("image uploaded");
-        console.log(x.files[0]);
+function Register(props) {
+
+    const registerValid = () => {
+        var username = document.getElementById("userName").value;
+        var nickname = document.getElementById("nickname").value;
+        var password = document.getElementById("password").value;
+        var confirmPass = document.getElementById("confirmPass").value;
+
+        /*
+        props.users.push({ username: "omri", password: "1010" });
+        var new_users = props.users;    
+        console.log(new_users,11);
+        props.func(new_users);
+        var navLink = document.getElementsByClassName('nav-link');
+        navLink[0].style.visibility = "hidden";
+        navLink[1].style.visibility = "hidden";
+        */ 
+        console.log(username, nickname, password, confirmPass);
+        if (passwordValidation(password, confirmPass)) {
+            console.log("its ok");
+        } else {
+            console.log("its NOT ok");
+        }
+
+
     }
     return (
         <form id='form1' className="row g-3">
@@ -13,21 +34,67 @@ function Register() {
 
             <div className="md-4">
                 <label className="form-label">Username:</label>
-                <input type="text" className="form-control inp" required></input>
+                <input id="userName" type="text" className="form-control inp" required></input>
             </div>
-                <div className="md-4">
+            <div className="md-4">
                 <label className="form-label">Nickname:</label>
-                <input type="text" className="form-control inp"  required></input>
-                </div>
-            <div className="mb-3">
+                <input id="nickname" type="text" className="form-control inp" required></input>
+            </div>
+            <div className="md-4">
+                <label className="form-label">password:</label>
+                <input id="password" type="password" className="form-control inp" required></input>
+            </div>
+            <div className="md-4">
+                <label className="form-label">confirm password:</label>
+                <input id="confirmPass" type="password" className="form-control inp" required></input>
+            </div>
+            <div className="mb-4">
                 <label className="form-label">image:</label>
-                <input onChange={foo} className="form-control" type="file" id="formFile" accept="image/*" required></input>
+                <input className="form-control inp" type="file" id="formFile" accept="image/*" required></input>
             </div>
             <div className="col-12">
-                <button type="submit" className="btn btn-primary mb-1">Sign-up</button><br></br>
-            </div><br></br>
+                <button type="submit" onClick={registerValid} className="btn btn-primary mb-1">Sign-up</button>
+            </div>
         </form>
     );
 }
 
 export default Register;
+
+function passwordValidation(pass, confPass) {
+    //check if the password equal to the confirm password
+    if (pass !== confPass) {
+        console.log("invalid password", pass);
+        alert()
+        return false;
+
+        //check if the length of the password is at least 6 charcters
+    } else if (pass.length < 6) {
+        console.log("invalid password length");
+        return false;
+        //check if the password contains at least one capital letter
+    } if (true) {
+        let count = 0;
+        let i = 65;
+        for (i; i <= 90; i++) {
+            if (pass.includes(String.fromCharCode(i))) count++;
+        }
+        if (count < 1) {
+            alert("need at least one capital letter");
+            return false;
+        }
+    }
+    //check if the password contains at least one small letter
+    if (true) {
+        let count = 0;
+        let i = 97;
+        for (i; i <= 122; i++) {
+            if (pass.includes(String.fromCharCode(i))) count++;
+        }
+        if (count < 1) {
+            alert("need at least one small letter");
+            return false;
+        }
+    }
+    return true;
+}
