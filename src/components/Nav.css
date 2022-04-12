@@ -1,0 +1,26 @@
+.nav {
+    position: relative;
+    background-color: aquamarine;
+    font-size: 25px;
+    box-shadow: inset 0px -1px 0px #f3f3f4
+}
+.header {
+    position: absolute;
+    left:0px;
+    padding:0.5%;   
+    font-size:inherit;
+}
+.chat:hover{
+    color:black;
+}
+.chat{
+    color:black;
+}
+#logo{
+    color:initial;
+    margin-left:3px;
+}
+.nav-link{
+    font-style:italic;
+    //visibility:hidden;
+}
