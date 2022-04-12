@@ -1,38 +1,46 @@
-label{
-    font-size:small;
+label {
+    font-size: medium;
 }
+
 .md-4 {
     width: 60%;
+    max-height: 60px;
 }
-.inp{
+
+.inp {
     width: 70%;
     background-color: gainsboro;
     text-align: center;
     align-self: center;
+    margin-left: 15%;
 }
+
 .form-floating {
     justify-content: center;
     align-items: center;
     width: 100%;
     margin: 0 25% 0;
 }
-#form1{
+
+#form1 {
+    text-align: center;
     background-color: ghostwhite;
-    font-size:100%;
-    //contain-intrinsic-size:auto;
+    font-size: 100%;
+    justify-content: center;
+    margin-bottom: 10%;
 }
 
 .btn {
     width: 40%;
     margin: 0 30% 0;
-    max-height:100%;
+    max-height: 100%;
 }
 
 .header1 {
-    margin-top:0px;
+    margin-top: 0px;
     font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: blueviolet;
 }
-
