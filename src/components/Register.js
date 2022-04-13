@@ -9,6 +9,7 @@ function Register(props) {
         var nickname = document.getElementById("nickname").value;
         var password = document.getElementById("password").value;
         var confirmPass = document.getElementById("confirmPass").value;
+        var myImage =  document.getElementById("formFile").files.length 
 
         /*
         props.users.push({ username: "omri", password: "1010" });
@@ -25,6 +26,38 @@ function Register(props) {
         } else {
             console.log("its NOT ok");
         }
+        if(nickname==''){
+            const threeLeeter= username.substring(0,2);
+            nickname=threeLeeter+Math.floor(Math.random() * 50)+Math.random().toString(36).replace(/[^a-z]+/g, '').substring(0, 2);
+           alert("you didnt chose nickname");
+           alert("your nickname is:"+nickname);
+        
+          
+        }
+        
+        if(myImage==0){
+            alert("you didnt chose image");
+            var emoji=<p style="font-size:100px">&#128540;</p> 
+            function myImage(emoji){
+                return(
+                    <div>
+                   <img src={emoji} alt="emoji" height="50" width="50"/>
+                    </div>
+                    
+                );
+            
+            }
+        var im=myImage(emoji);
+        alert("image: "+im)
+            console.log(emoji);
+            alert(emoji)
+            let i = Math.floor(Math.random() * 50);
+         let newImage=emoji+i;
+         alert("no image");
+         console.log(newImage);
+            alert=(newImage);      
+        }
+    
 
 
     }
@@ -34,15 +67,15 @@ function Register(props) {
 
             <div className="md-4">
                 <label className="form-label">Username:</label>
-                <input id="userName" type="text" className="form-control inp" required></input>
+                <input id="userName" type="text"  className="form-control inp" required></input>
             </div>
             <div className="md-4">
                 <label className="form-label">Nickname:</label>
-                <input id="nickname" type="text" className="form-control inp" required></input>
+                <input id="nickname" type="text" className="form-control inp" ></input>
             </div>
             <div className="md-4">
                 <label className="form-label">password:</label>
-                <input id="password" type="password" className="form-control inp" required></input>
+                <input id="password" type="password" className="form-control inp"  required></input>
             </div>
             <div className="md-4">
                 <label className="form-label">confirm password:</label>
@@ -50,7 +83,7 @@ function Register(props) {
             </div>
             <div className="mb-4">
                 <label className="form-label">image:</label>
-                <input className="form-control inp" type="file" id="formFile" accept="image/*" required></input>
+                <input className="form-control inp" type="file" id="formFile" accept="image/*" ></input>
             </div>
             <div className="col-12">
                 <button type="submit" onClick={registerValid} className="btn btn-primary mb-1">Sign-up</button>
