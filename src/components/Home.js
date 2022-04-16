@@ -1,3 +1,4 @@
+import './Home.css'
 
 function Home(){
 
@@ -13,22 +14,16 @@ function Home(){
           <div class="carousel-item active" data-bs-interval="10000">
             <img src="./v.jpg" class="d-block w-100" alt="..."/>
             <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="2000">
             <img src="./v1.jpg" class="d-block w-100" alt="..."/>
             <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Scond slide.</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="./v2.jpg" class="d-block w-100" alt="..."/>
             <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
             </div>
           </div>
         </div>
@@ -36,9 +31,9 @@ function Home(){
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <button  class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+          <span  class="visually-hidden">Next</span>
         </button>
       </div>
     
@@ -47,8 +42,3 @@ function Home(){
   export default Home;
   
   
-  
-
-
-
-
