@@ -24,7 +24,7 @@ function Main() {
                         <Register />
                     </Route>
                     <Route path="/chatForm">
-                    <ChatForm />
+                    <ChatForm  />
                 </Route>
                 </Switch>
             </div>

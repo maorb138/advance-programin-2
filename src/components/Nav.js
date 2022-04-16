@@ -13,7 +13,7 @@ function Nav() {
                 <a className="nav-link" href="/login" >Login</a>
             </li>
             <li className="nav-item">
-            <a className="nav-link" href="/chatForm" >chatForm</a>
+            <a className="nav-link" href="/chatForm" >ChatForm</a>
         </li>
         </ul>
 		);
