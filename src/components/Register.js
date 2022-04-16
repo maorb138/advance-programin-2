@@ -10,6 +10,7 @@ function Register(props) {
         var password = document.getElementById("password").value;
         var confirmPass = document.getElementById("confirmPass").value;
         var myImage =  document.getElementById("formFile").files.length 
+       
 
         /*
         props.users.push({ username: "omri", password: "1010" });
@@ -26,36 +27,18 @@ function Register(props) {
         } else {
             console.log("its NOT ok");
         }
-        if(nickname==''){
+        if(nickname===''){
             const threeLeeter= username.substring(0,2);
             nickname=threeLeeter+Math.floor(Math.random() * 50)+Math.random().toString(36).replace(/[^a-z]+/g, '').substring(0, 2);
            alert("you didnt chose nickname");
-           alert("your nickname is:"+nickname);
-        
-          
+           alert("your nickname is:"+nickname); 
         }
         
-        if(myImage==0){
-            alert("you didnt chose image");
-            var emoji=<p style="font-size:100px">&#128540;</p> 
-            function myImage(emoji){
-                return(
-                    <div>
-                   <img src={emoji} alt="emoji" height="50" width="50"/>
-                    </div>
-                    
-                );
+        if(myImage===0){
+            alert("you didnt chose any image");
             
-            }
-        var im=myImage(emoji);
-        alert("image: "+im)
-            console.log(emoji);
-            alert(emoji)
-            let i = Math.floor(Math.random() * 50);
-         let newImage=emoji+i;
-         alert("no image");
-         console.log(newImage);
-            alert=(newImage);      
+         
+
         }
     
 
