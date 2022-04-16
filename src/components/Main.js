@@ -2,6 +2,7 @@ import './LogIn.css';
 import Login from './Login';
 import Register from './Register';
 import Home from './Home';
+import ChatForm from './ChatForm';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
@@ -21,8 +22,10 @@ function Main() {
                     </Route>
                     <Route path="/register">
                         <Register />
-
                     </Route>
+                    <Route path="/chatForm">
+                    <ChatForm />
+                </Route>
                 </Switch>
             </div>
         </Router>
