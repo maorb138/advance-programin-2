@@ -1,3 +1,7 @@
-.foo {
-   background-size: auto;
+body{
+   background:linear-gradient( 58deg, rgb(61, 88, 241) 20%, rgb(167, 128, 128) 100% );
+}
+.carousel-item{
+   height: 500px;
+   width: 900px;
 }
