@@ -14,7 +14,9 @@ function Register(props) {
         var nicknameArray=new Array();
         var passwordArray=new Array();
         var imageArray=new Array();
-       
+        const user = new Map();
+
+    
 
         /*
         props.users.push({ username: "omri", password: "1010" });
@@ -67,15 +69,15 @@ function Register(props) {
         return true;
         }
     }
+
     //     if(printArray(imageArray,passwordArray,nicknameArray)){
     //         alert("tr");
     //     }
     // function printArray(imageArray,passwordArray,nicknameArray){
     //     for (let index = 0; index <1; index++) {
-    //         console.log(passwordArray(index));
-    //         console.log(nicknameArray(index));
-    //         alert(""+passwordArray(index));
-    //         alert(""+nicknameArray(index));
+    //         console.log(passwordArray(index).value);
+    //         console.log(nicknameArray(index).value);
+         
     //     }
     //     return true;
 
@@ -105,10 +107,10 @@ function Register(props) {
                 <label className="form-label">confirm password:</label>
                 <input id="confirmPass" type="password" className="form-control inp" required></input>
             </div>
-            <div className="mb-4">
-                <label className="form-label">image:</label>
-                <input className="form-control inp" type="file" id="formFile" accept="image/*" ></input>
-            </div>
+            <div>
+            <input type="file" id="image-input" onClick={displayimage} accept="image/jpeg, image/png, image/jpg" />
+            <div id="display-image" />
+             </div>
             <div className="col-12">
                 <button type="submit" onClick={registerValid} className="btn btn-primary mb-1">Sign-up</button>
             </div>
@@ -155,3 +157,16 @@ function passwordValidation(pass, confPass) {
     }
     return true;
 }
+function displayimage(){
+    const image_input = document.querySelector("#image-input");
+
+image_input.addEventListener("change", function() {
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    const uploaded_image = reader.result;
+    document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
+  });
+  reader.readAsDataURL(this.files[0]);
+    });
+    }
+

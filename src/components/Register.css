@@ -14,7 +14,17 @@ label {
     align-self: center;
     margin-left: 15%;
 }
-
+#display-image{
+    width: 400px;
+    height: 150px;
+    border: 1px solid black;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    align-self: center;
+    margin-left: 28%;
+    
+  }
 .form-floating {
     justify-content: center;
     align-items: center;
