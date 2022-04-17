@@ -28,7 +28,7 @@ function Register(props) {
         console.log(username, nickname, password, confirmPass);
         if (passwordValidation(password, confirmPass)) {
             console.log("its ok");
-            passwordArray.push(password);
+            passwordArray.push(""+password);
         } else {
             console.log("its NOT ok");
         }
@@ -37,9 +37,9 @@ function Register(props) {
             let Newnickname=threeLeeter+Math.floor(Math.random() * 50)+Math.random().toString(36).replace(/[^a-z]+/g, '').substring(0, 2);
           alert("you didnt chose nickname");
           alert("your nickname is:"+Newnickname);
-            nicknameArray.push(Newnickname);
+            nicknameArray.push(""+Newnickname);
         }else{
-            nicknameArray.push(nickname);
+            nicknameArray.push(""+nickname);
         }
 
         function NickNameValidation(nickname){
@@ -55,20 +55,33 @@ function Register(props) {
         alert("this is your new profile image:");
         let i = Math.floor(Math.random() * 25);
         var newImage=window.open('./Emoji/'+i+'.png', "", "width=400,height=400");
-        imageArray.push(i);
+       
+        imageArray.push(""+i);
+        return;
     }else{
-        imageArray.push(myImage);
-
+        imageArray.push(""+myImage);
+       
     }
         function ImageValidation(myImage){
         if(myImage===0){    
         return true;
-        }else {
-            return false;
         }
     }
+    //     if(printArray(imageArray,passwordArray,nicknameArray)){
+    //         alert("tr");
+    //     }
+    // function printArray(imageArray,passwordArray,nicknameArray){
+    //     for (let index = 0; index <1; index++) {
+    //         console.log(passwordArray(index));
+    //         console.log(nicknameArray(index));
+    //         alert(""+passwordArray(index));
+    //         alert(""+nicknameArray(index));
+    //     }
+    //     return true;
 
-    
+
+    // }
+
 
 
     }
