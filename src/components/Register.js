@@ -63,7 +63,7 @@ function Register(props) {
         function ImageValidation(myImage){
         if(myImage===0){    
         return true;
-        }else{
+        }else {
             return false;
         }
     }
