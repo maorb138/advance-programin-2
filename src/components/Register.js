@@ -10,7 +10,7 @@ function Register(props) {
         var nickname = document.getElementById("nickname").value;
         var password = document.getElementById("password").value;
         var confirmPass = document.getElementById("confirmPass").value;
-        var myImage =  document.getElementById("formFile").files.length 
+        var myImage =  document.getElementById("image-input").files.length 
         var nicknameArray=new Array();
         var passwordArray=new Array();
         var imageArray=new Array();
