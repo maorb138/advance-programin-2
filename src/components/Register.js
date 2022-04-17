@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './Register.css';
 import $ from 'jquery'
 import React from 'react';
+import './db.js'
 
 function Register(props) {
 
@@ -15,6 +16,8 @@ function Register(props) {
         var passwordArray=new Array();
         var imageArray=new Array();
         const user = new Map();
+        const RegUser = [{ nickN: '',imgUrl:'' }]
+        
 
     
 
@@ -31,17 +34,22 @@ function Register(props) {
         if (passwordValidation(password, confirmPass)) {
             console.log("its ok");
             passwordArray.push(""+password);
+            
         } else {
             console.log("its NOT ok");
         }
         if(NickNameValidation(nickname)){
+            ////no nickname so i create a new one called NewnickName;
             const threeLeeter= username.substring(0,2);
             let Newnickname=threeLeeter+Math.floor(Math.random() * 50)+Math.random().toString(36).replace(/[^a-z]+/g, '').substring(0, 2);
           alert("you didnt chose nickname");
           alert("your nickname is:"+Newnickname);
             nicknameArray.push(""+Newnickname);
+            RegUser.nickN=Newnickname;
         }else{
+            ///he wrote nickname in field;
             nicknameArray.push(""+nickname);
+            RegUser.nickN=nickname;
         }
 
         function NickNameValidation(nickname){
@@ -57,16 +65,19 @@ function Register(props) {
         alert("this is your new profile image:");
         let i = Math.floor(Math.random() * 25);
         var newImage=window.open('./Emoji/'+i+'.png', "", "width=400,height=400");
-       
+        RegUser.imgUrl=newImage;
         imageArray.push(""+i);
         return;
     }else{
         imageArray.push(""+myImage);
+        RegUser.imgUrl=myImage;
        
     }
         function ImageValidation(myImage){
         if(myImage===0){    
         return true;
+        }else{
+            return false;
         }
     }
 
