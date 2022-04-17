@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Register.css';
-
+import $ from 'jquery'
+import React from 'react';
 
 function Register(props) {
 
@@ -10,6 +11,9 @@ function Register(props) {
         var password = document.getElementById("password").value;
         var confirmPass = document.getElementById("confirmPass").value;
         var myImage =  document.getElementById("formFile").files.length 
+        var nicknameArray=new Array();
+        var passwordArray=new Array();
+        var imageArray=new Array();
        
 
         /*
@@ -24,30 +28,54 @@ function Register(props) {
         console.log(username, nickname, password, confirmPass);
         if (passwordValidation(password, confirmPass)) {
             console.log("its ok");
+            passwordArray.push(password);
         } else {
             console.log("its NOT ok");
         }
-        if(nickname===''){
+        if(NickNameValidation(nickname)){
             const threeLeeter= username.substring(0,2);
-            nickname=threeLeeter+Math.floor(Math.random() * 50)+Math.random().toString(36).replace(/[^a-z]+/g, '').substring(0, 2);
-           alert("you didnt chose nickname");
-           alert("your nickname is:"+nickname); 
+            let Newnickname=threeLeeter+Math.floor(Math.random() * 50)+Math.random().toString(36).replace(/[^a-z]+/g, '').substring(0, 2);
+          alert("you didnt chose nickname");
+          alert("your nickname is:"+Newnickname);
+            nicknameArray.push(Newnickname);
+        }else{
+            nicknameArray.push(nickname);
         }
-        
-        if(myImage===0){
-            alert("you didnt chose any image");
-            
-         
 
+        function NickNameValidation(nickname){
+        if(nickname===''){
+           return true;  
+        }else{
+            return false;
         }
+    }
+    
+    if(ImageValidation(myImage)){
+        alert("you didnt choose any image");
+        alert("this is your new profile image:");
+        let i = Math.floor(Math.random() * 25);
+        var newImage=window.open('./Emoji/'+i+'.png', "", "width=400,height=400");
+        imageArray.push(i);
+    }else{
+        imageArray.push(myImage);
+
+    }
+        function ImageValidation(myImage){
+        if(myImage===0){    
+        return true;
+        }else{
+            return false;
+        }
+    }
+
     
 
 
     }
     return (
+        
         <form id='form1' className="row g-3">
             <div className="header1"> Sign-up</div>
-
             <div className="md-4">
                 <label className="form-label">Username:</label>
                 <input id="userName" type="text"  className="form-control inp" required></input>
