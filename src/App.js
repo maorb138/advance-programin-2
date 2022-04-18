@@ -29,13 +29,12 @@ function App() {
         <Home/>
             <div className="App">
                 <Nav />
-               
                 <Switch>
-                    <Route exact path='/'>
+                    <Route exact path='/login'>
                         <Login users={_users} />
                     </Route>
                     <Route path='/register'>
-                        <Register func={foo}/>
+                        <Register users={_users} func={foo}/>
                     </Route>
                     <Route path='/chat'>
                         <ChatPage />

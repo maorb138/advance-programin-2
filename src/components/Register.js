@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './Register.css';
-import $ from 'jquery'
 import React from 'react';
 import './db.js'
+import users from './db.js';
 
 function Register(props) {
 
@@ -15,11 +15,7 @@ function Register(props) {
         props.func({ username: "omri", password: "1010" });
         console.log(username, nickname, password, confirmPass);
         passwordValidation(password, confirmPass);
-        var nicknameArray=new Array();
-        var passwordArray=new Array();
-        var imageArray=new Array();
-        const user = new Map();
-        const RegUser = [{ nickN: '',imgUrl:'' }]
+    
         /*
         props.users.push({ username: "omri", password: "1010" });
         var new_users = props.users;    
@@ -32,7 +28,7 @@ function Register(props) {
         console.log(username, nickname, password, confirmPass);
         if (passwordValidation(password, confirmPass)) {
             console.log("its ok");
-            passwordArray.push(""+password);
+    
             
         } else {
             console.log("its NOT ok");
@@ -43,12 +39,11 @@ function Register(props) {
             let Newnickname=threeLeeter+Math.floor(Math.random() * 50)+Math.random().toString(36).replace(/[^a-z]+/g, '').substring(0, 2);
           alert("you didnt chose nickname");
           alert("your nickname is:"+Newnickname);
-            nicknameArray.push(""+Newnickname);
-            RegUser.nickN=Newnickname;
+        
         }else{
             ///he wrote nickname in field;
-            nicknameArray.push(""+nickname);
-            RegUser.nickN=nickname;
+            console.log(nickname)
+           
         }
 
         function NickNameValidation(nickname){
@@ -64,13 +59,10 @@ function Register(props) {
         alert("this is your new profile image:");
         let i = Math.floor(Math.random() * 25);
         var newImage=window.open('./Emoji/'+i+'.png', "", "width=400,height=400");
-        RegUser.imgUrl=newImage;
-        imageArray.push(""+i);
+        
         return;
     }else{
-        imageArray.push(""+myImage);
-        RegUser.imgUrl=myImage;
-       
+        
     }
         function ImageValidation(myImage){
         if(myImage===0){    
@@ -79,20 +71,16 @@ function Register(props) {
             return false;
         }
     }
+    if(ValidUserName(username)){
+            alert("The username already exists in the system");
+    }
+    function ValidUserName(username){
+                for (let index = 0; index < users.username; index++) {
+                    
+                    
+                }
 
-    //     if(printArray(imageArray,passwordArray,nicknameArray)){
-    //         alert("tr");
-    //     }
-    // function printArray(imageArray,passwordArray,nicknameArray){
-    //     for (let index = 0; index <1; index++) {
-    //         console.log(passwordArray(index).value);
-    //         console.log(nicknameArray(index).value);
-         
-    //     }
-    //     return true;
-
-
-    // }
+    }
 
 
     }
