@@ -1,22 +1,25 @@
 import './ChatForm.css'
+
 function ChatForm(){
+
     return(
       <div id="container">
       <aside>
       <header>
       <h3>Welcome back!</h3>
-      <input type="text" id="myInput" onClick={SearchName} placeholder="Search for names.." title="Type in a name"/>
+  
+      <input type="text" id="myInput"  onKeyUp={SearchName} placeholder="Search.." title="Type in a name"/>
 
       <ul id="myUL">
-        <li><a href="#">Adele</a></li>
-        <li><a href="#">Agnes</a></li>
+      <li><a href="#">Adele</a></li>
+      <li><a href="#">Agnes</a></li>
       
-        <li><a href="#">Billy</a></li>
-        <li><a href="#">Bob</a></li>
+      <li><a href="#">Billy</a></li>
+      <li><a href="#">Bob</a></li>
       
-        <li><a href="#">Calvin</a></li>
-        <li><a href="#">Christina</a></li>
-        <li><a href="#">Cindy</a></li>
+      <li><a href="#">Calvin</a></li>
+      <li><a href="#">Christina</a></li>
+      <li><a href="#">Cindy</a></li>
       </ul>
       </header>
       <ul>
@@ -31,6 +34,9 @@ function ChatForm(){
     );
 }
 function SearchName(){
+  const registerValid = () => {
+    let list = document.getElementById("myUL");
+  }
   var input, filter, ul, li, a, i, txtValue;
   input = document.getElementById('myInput');
   filter = input.value.toUpperCase();

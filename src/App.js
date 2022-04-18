@@ -17,7 +17,7 @@ const x = () => {
 function App() {
     const [_users, setUsers] = useState(users);
 
-    const foo = function (user) {
+    const foo = function (user)  {
         console.log(user);
         console.log(_users.length);
         setUsers(_users.concat(user));
