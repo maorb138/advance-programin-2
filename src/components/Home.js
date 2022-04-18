@@ -11,7 +11,7 @@ function Home(){
       <link href="https://fonts.googleapis.com/css?family=Courgette|Open+Sans&display=swap" rel="stylesheet" /> 
       <section>
         <h2>
-          Hello October!
+        Welcome!
         </h2>
         <div className="leaf">
           <div>  <img src="http://www.pngmart.com/files/1/Fall-Autumn-Leaves-Transparent-PNG.png" height="75px" width="75px" /></div>

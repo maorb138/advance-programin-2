@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './Nav.css';
 import { NavLink } from 'react-router-dom';
+import ChatPage from './ChatPage';
 function Nav() {
     return (
         <ul className="nav justify-content-end">
@@ -10,7 +11,7 @@ function Nav() {
             </li>
         
             <li className="nav-item">
-                <NavLink className="nav-link" to="/chatForm" >ChatForm</NavLink>
+                <NavLink className="nav-link" to="/chatForm" >ChatPage</NavLink>
             </li>
         </ul>
 		);

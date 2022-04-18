@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './Register.css';
 import React from 'react';
 import './db.js'
-import users from './db.js';
+
 
 function Register(props) {
 
@@ -15,6 +15,9 @@ function Register(props) {
         props.func({ username: "omri", password: "1010" });
         console.log(username, nickname, password, confirmPass);
         passwordValidation(password, confirmPass);
+         NickNameValidation(nickname);
+         ImageValidation(myImage);
+         
     
         /*
         props.users.push({ username: "omri", password: "1010" });
@@ -33,57 +36,36 @@ function Register(props) {
         } else {
             console.log("its NOT ok");
         }
-        if(NickNameValidation(nickname)){
-            ////no nickname so i create a new one called NewnickName;
-            const threeLeeter= username.substring(0,2);
-            let Newnickname=threeLeeter+Math.floor(Math.random() * 50)+Math.random().toString(36).replace(/[^a-z]+/g, '').substring(0, 2);
-          alert("you didnt chose nickname");
-          alert("your nickname is:"+Newnickname);
-        
-        }else{
-            ///he wrote nickname in field;
-            console.log(nickname)
-           
-        }
 
         function NickNameValidation(nickname){
-        if(nickname===''){
-           return true;  
-        }else{
+            if(nickname===''){
+              ////no nickname so i create a new one called NewnickName;
+              var threeLeeter= username.substring(0,2);
+              var Newnickname=threeLeeter+Math.floor(Math.random() * 50)+Math.random().toString(36).replace(/[^a-z]+/g, '').substring(0, 2);
+              
+            alert("you didnt chose nickname");
+            alert("your nickname is:"+Newnickname);
+            nickname=Newnickname;
+              return nickname;
+            }else{
+                 ///he wrote nickname in field;
+                console.log(nickname)
+                return nickname;  
+            }
+        }
+
+    props.users.map((x) => {
+        if (username === x.username || nickname === x.nickname ) {
+            console.log("username/nickname already exists in the system");
+            alert("username/nickname already exists in the system");
+            
             return false;
         }
-    }
-    
-    if(ImageValidation(myImage)){
-        alert("you didnt choose any image");
-        alert("this is your new profile image:");
-        let i = Math.floor(Math.random() * 25);
-        var newImage=window.open('./Emoji/'+i+'.png', "", "width=400,height=400");
-        
-        return;
-    }else{
-        
-    }
-        function ImageValidation(myImage){
-        if(myImage===0){    
         return true;
-        }else{
-            return false;
-        }
-    }
-    if(ValidUserName(username)){
-            alert("The username already exists in the system");
-    }
-    function ValidUserName(username){
-                for (let index = 0; index < users.username; index++) {
-                    
-                    
-                }
+    
 
-    }
-
-
-    }
+    });
+}
     
     return (
         
@@ -166,5 +148,17 @@ image_input.addEventListener("change", function() {
   });
   reader.readAsDataURL(this.files[0]);
     });
+    }
+    function ImageValidation(myImage){
+        if(myImage===0){    
+            alert("you didnt choose any image");
+            alert("this is your new profile image:");
+            let i = Math.floor(Math.random() * 25);
+           var newImage=window.open('./Emoji/'+i+'.png', "", "width=400,height=400");
+           myImage=newImage;
+           return myImage;
+        }else{
+            return myImage;
+        }
     }
 
