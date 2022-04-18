@@ -20,11 +20,6 @@ function Register(props) {
         var imageArray=new Array();
         const user = new Map();
         const RegUser = [{ nickN: '',imgUrl:'' }]
-    
-        
-
-    
-
         /*
         props.users.push({ username: "omri", password: "1010" });
         var new_users = props.users;    
