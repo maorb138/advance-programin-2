@@ -1,8 +1,12 @@
 import './App.css';
 import Nav from './components/Nav';
-import Main from './components/Main';
 import { useState } from 'react';
-import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
+import Login from './components/Login';
+import Register from './components/Register';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import users from './components/db';
+import ChatPage from './components/ChatPage';
+
 /*
 const x = () => {
     var elm = document.getElementsByClassName("nav-link");
@@ -11,13 +15,32 @@ const x = () => {
 }*/
 
 function App() {
+    const [_users, setUsers] = useState(users);
 
+    const foo = function (user) {
+        console.log(user);
+        console.log(_users.length);
+        setUsers(_users.concat(user));
+    }
+    //{page !== 'Register' ? <Login /> : <Register />}
     return (
-        <div className="App">
-            <Nav/>
-            <Main />
-    </div>
-  );
+        <Router>
+            <div className="App">
+                <Nav />
+                <Switch>
+                    <Route exact path='/'>
+                        <Login users={_users} />
+                    </Route>
+                    <Route path='/register'>
+                        <Register func={foo}/>
+                    </Route>
+                    <Route path='/chat'>
+                        <ChatPage />
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
