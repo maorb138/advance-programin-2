@@ -12,11 +12,15 @@ function Register(props) {
         var password = document.getElementById("password").value;
         var confirmPass = document.getElementById("confirmPass").value;
         var myImage =  document.getElementById("image-input").files.length 
+        props.func({ username: "omri", password: "1010" });
+        console.log(username, nickname, password, confirmPass);
+        passwordValidation(password, confirmPass);
         var nicknameArray=new Array();
         var passwordArray=new Array();
         var imageArray=new Array();
         const user = new Map();
         const RegUser = [{ nickN: '',imgUrl:'' }]
+    
         
 
     
@@ -96,8 +100,8 @@ function Register(props) {
     // }
 
 
-
     }
+    
     return (
         
         <form id='form1' className="row g-3">

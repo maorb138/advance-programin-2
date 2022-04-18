@@ -1,18 +1,22 @@
 label {
-    font-size: medium;
+    font-size:medium;
+    border-bottom-left-radius: 7px;
+    max-height:20px;
 }
 
-.md-4 {
-    width: 60%;
-    max-height: 60px;
+#password,#userName,#nickname{
+    color:blue;
 }
+
 
 .inp {
     width: 70%;
     background-color: gainsboro;
-    text-align: center;
-    align-self: center;
+    align-content: center;
+    justify-content: center;
     margin-left: 15%;
+    display: block;
+    margin: 0 auto;
 }
 #display-image{
     width: 400px;
@@ -35,9 +39,22 @@ label {
 #form1 {
     text-align: center;
     background-color: ghostwhite;
-    font-size: 100%;
     justify-content: center;
-    margin-bottom: 10%;
+    margin: 40px;
+    margin-left:20%;
+    margin-right:20%;
+    height:100%;
+    border: 5px solid red;
+    border-radius:25px;
+}
+.md-4-row {
+    width: 60%;
+    max-height: 60px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 25% 0;
+    position: relative;
+
 }
 
 .btn {
@@ -47,10 +64,10 @@ label {
 }
 
 .header1 {
-    margin-top: 0px;
+    margin-top:0px;
     font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: blueviolet;
+    color:blueviolet;
 }

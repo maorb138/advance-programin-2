@@ -12,8 +12,22 @@
     margin: 0 25% 0;
 
 }
-.login{
-    background-color:ivory;
+.login {
+    padding: 20px;
+    background-color: white;
+    margin: 40px;
+    margin-left: 25%;
+    margin-right: 25%;
+    height: 400px;
+    border: 3px solid lightgray;
+    position: relative;
+    border-radius: 20px;
+}
+
+.error{
+    color: red;
+    align-content:center;
+    text-align:center;
 }
 .btn {
     width: 40%;
@@ -22,10 +36,13 @@
     height: 40px;
 }
 h3 {
-    margin: 5% 27% 0;
+    text-align:center;
 }
 .main {
     justify-content: center;
-    margin: 5% 25% 0;
-    height:400px ;
+    align-items: center;
+    margin: 2% 25% 0;
+    height: 400px;
+    transform-box:border-box;
+    border: 1px solid lightgray;
 }

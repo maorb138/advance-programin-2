@@ -5,13 +5,13 @@
     height: 400px;
     margin-left: 20%;
     margin-right: 20%;
-    //position:sticky;
-    //overflow: scroll;
+    position:sticky;
+    overflow: scroll;
     border: 5px solid red;
     text-align:center;
 }
 .hello.nav {
-    //position: relative;
+    position: relative;
     background-color: white;
 
 }
