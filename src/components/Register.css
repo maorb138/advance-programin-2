@@ -46,6 +46,7 @@ label {
     height:85%;
     border: 5px solid red;
     border-radius:25px;
+    position: relative;
 }
 .md-4-row {
     width: 60%;
