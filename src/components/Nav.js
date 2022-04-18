@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 function Nav() {
     return (
         <ul className="nav justify-content-end">
-            <NavLink href="/login" className="chat-logo"><span className="header"><i className="bi bi-chat-left-text-fill"></i> ChatApp</span></NavLink>
+            <NavLink to="/login" className="chat-logo"><span className="header"><i className="bi bi-chat-left-text-fill"></i> ChatApp</span></NavLink>
             <li className="nav-item">
                 <NavLink className="nav-link" to='/register' >Register</NavLink>
             </li>
