@@ -2,10 +2,13 @@ import { useState } from 'react';
 import './Register.css';
 import React from 'react';
 import './db.js'
+import { useHistory } from "react-router-dom";
+import  users from'./db.js'
 
 
 function Register(props) {
-
+    const history = useHistory();
+    const [err, seterr] = useState("");
     const registerValid = () => {
         var username = document.getElementById("userName").value;
         var nickname = document.getElementById("nickname").value;
@@ -17,7 +20,7 @@ function Register(props) {
         passwordValidation(password, confirmPass);
          NickNameValidation(nickname);
          ImageValidation(myImage);
-         
+
     
         /*
         props.users.push({ username: "omri", password: "1010" });
@@ -53,18 +56,19 @@ function Register(props) {
                 return nickname;  
             }
         }
+        users.map((x) => {
+            if (username === x.username && username == x.username) {
+                alert("An existing username in the system");
+                history.push("/login");
+                  
+            }
+            if(username !== x.username && username!=x.username ){
+                history.push("/chat");
+            } 
+        });
 
-    props.users.map((x) => {
-        if (username === x.username || nickname === x.nickname ) {
-            console.log("username/nickname already exists in the system");
-            alert("username/nickname already exists in the system");
-            
-            return false;
-        }
-        return true;
-    
 
-    });
+  
 }
     
     return (
@@ -104,6 +108,7 @@ function passwordValidation(pass, confPass) {
     //check if the password equal to the confirm password
     if (pass !== confPass) {
         console.log("invalid password", pass);
+      
         alert()
         return false;
 
