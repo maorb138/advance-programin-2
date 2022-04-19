@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import users from './components/DataBase/db';
 import ChatPage from './components/ChatPage/ChatPage';
 import Home from './components/HomePage/Home';
+import Sidebar from './components/ChatPage/Sidebar';
 
 
 /*
@@ -27,19 +28,26 @@ function App() {
     return (
 
         <Router>
-        <Home/>
+        
             <div className="App">
                 <Nav />
                 <Switch>
                     <Route exact path='/login'>
+                    <Home></Home>
                         <Login users={_users} />
                     </Route>
                     <Route path='/register'>
+                    <Home></Home>
                         <Register users={_users} func={foo}/>
                     </Route>
                     <Route path='/chat'>
                         <ChatPage />
                 </Route>
+                <Route path='/sidebar'>
+                <Sidebar />
+        </Route>
+        
+                
                     
                 </Switch>
                
