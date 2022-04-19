@@ -23,6 +23,7 @@ function App() {
         console.log(_users.length);
         setUsers(_users.concat(user));
     }
+    //{page !== 'Register' ? <Login /> : <Register />}
     return (
 
         <Router>
