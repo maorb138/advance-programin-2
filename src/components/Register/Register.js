@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import './Register.css';
-import $ from 'jquery'
 import React from 'react';
-import './db.js'
+import './../DataBase/db.js';
+import { useHistory } from "react-router-dom";
+import  users from './../DataBase/db.js';
+
 
 function Register(props) {
-
+    const history = useHistory();
+    const [err, seterr] = useState("");
     const registerValid = () => {
         var username = document.getElementById("userName").value;
         var nickname = document.getElementById("nickname").value;
@@ -15,11 +18,10 @@ function Register(props) {
         props.func({ username: "omri", password: "1010" });
         console.log(username, nickname, password, confirmPass);
         passwordValidation(password, confirmPass);
-        var nicknameArray=new Array();
-        var passwordArray=new Array();
-        var imageArray=new Array();
-        const user = new Map();
-        const RegUser = [{ nickN: '',imgUrl:'' }]
+         NickNameValidation(nickname);
+         ImageValidation(myImage);
+
+    
         /*
         props.users.push({ username: "omri", password: "1010" });
         var new_users = props.users;    
@@ -32,70 +34,42 @@ function Register(props) {
         console.log(username, nickname, password, confirmPass);
         if (passwordValidation(password, confirmPass)) {
             console.log("its ok");
-            passwordArray.push(""+password);
+    
             
         } else {
             console.log("its NOT ok");
         }
-        if(NickNameValidation(nickname)){
-            ////no nickname so i create a new one called NewnickName;
-            const threeLeeter= username.substring(0,2);
-            let Newnickname=threeLeeter+Math.floor(Math.random() * 50)+Math.random().toString(36).replace(/[^a-z]+/g, '').substring(0, 2);
-          alert("you didnt chose nickname");
-          alert("your nickname is:"+Newnickname);
-            nicknameArray.push(""+Newnickname);
-            RegUser.nickN=Newnickname;
-        }else{
-            ///he wrote nickname in field;
-            nicknameArray.push(""+nickname);
-            RegUser.nickN=nickname;
-        }
 
         function NickNameValidation(nickname){
-        if(nickname===''){
-           return true;  
-        }else{
-            return false;
+            if(nickname===''){
+              ////no nickname so i create a new one called NewnickName;
+              var threeLeeter= username.substring(0,2);
+              var Newnickname=threeLeeter+Math.floor(Math.random() * 50)+Math.random().toString(36).replace(/[^a-z]+/g, '').substring(0, 2);
+              
+            alert("you didnt chose nickname");
+            alert("your nickname is:"+Newnickname);
+            nickname=Newnickname;
+              return nickname;
+            }else{
+                 ///he wrote nickname in field;
+                console.log(nickname)
+                return nickname;  
+            }
         }
-    }
-    
-    if(ImageValidation(myImage)){
-        alert("you didnt choose any image");
-        alert("this is your new profile image:");
-        let i = Math.floor(Math.random() * 25);
-        var newImage=window.open('./Emoji/'+i+'.png', "", "width=400,height=400");
-        RegUser.imgUrl=newImage;
-        imageArray.push(""+i);
-        return;
-    }else{
-        imageArray.push(""+myImage);
-        RegUser.imgUrl=myImage;
-       
-    }
-        function ImageValidation(myImage){
-        if(myImage===0){    
-        return true;
-        }else{
-            return false;
-        }
-    }
-
-    //     if(printArray(imageArray,passwordArray,nicknameArray)){
-    //         alert("tr");
-    //     }
-    // function printArray(imageArray,passwordArray,nicknameArray){
-    //     for (let index = 0; index <1; index++) {
-    //         console.log(passwordArray(index).value);
-    //         console.log(nicknameArray(index).value);
-         
-    //     }
-    //     return true;
+        users.map((x) => {
+            if (username === x.username && username == x.username) {
+                alert("An existing username in the system");
+                history.push("/login");
+                  
+            }
+            if(username !== x.username && username!=x.username ){
+                history.push("/chat");
+            } 
+        });
 
 
-    // }
-
-
-    }
+  
+}
     
     return (
         
@@ -134,6 +108,7 @@ function passwordValidation(pass, confPass) {
     //check if the password equal to the confirm password
     if (pass !== confPass) {
         console.log("invalid password", pass);
+      
         alert()
         return false;
 
@@ -178,5 +153,17 @@ image_input.addEventListener("change", function() {
   });
   reader.readAsDataURL(this.files[0]);
     });
+    }
+    function ImageValidation(myImage){
+        if(myImage===0){    
+            alert("you didnt choose any image");
+            alert("this is your new profile image:");
+            let i = Math.floor(Math.random() * 25);
+           var newImage=window.open('./Emoji/'+i+'.png', "", "width=400,height=400");
+           myImage=newImage;
+           return myImage;
+        }else{
+            return myImage;
+        }
     }
 

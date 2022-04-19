@@ -1,12 +1,14 @@
 import './App.css';
-import Nav from './components/Nav';
+import Nav from './components/Nav/Nav';
 import { useState } from 'react';
-import Login from './components/Login';
-import Register from './components/Register';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import users from './components/db';
-import ChatPage from './components/ChatPage';
-import Home from './components/Home';
+import users from './components/DataBase/db';
+import ChatPage from './components/ChatPage/ChatPage';
+import Home from './components/HomePage/Home';
+import Sidebar from './components/ChatPage/Sidebar';
+
 
 /*
 const x = () => {
@@ -27,20 +29,26 @@ function App() {
     return (
 
         <Router>
-        <Home/>
+        
             <div className="App">
                 <Nav />
-               
                 <Switch>
-                    <Route exact path='/'>
+                    <Route exact path='/login'>
+                    <Home></Home>
                         <Login users={_users} />
                     </Route>
                     <Route path='/register'>
-                        <Register func={foo}/>
+                    <Home></Home>
+                        <Register users={_users} func={foo}/>
                     </Route>
                     <Route path='/chat'>
                         <ChatPage />
-                    </Route>
+                </Route>
+                <Route path='/sidebar'>
+                <Sidebar />
+        </Route>
+        
+                
                     
                 </Switch>
                
