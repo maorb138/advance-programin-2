@@ -1,12 +1,13 @@
 import './App.css';
-import Nav from './components/Nav';
+import Nav from './components/Nav/Nav';
 import { useState } from 'react';
-import Login from './components/Login';
-import Register from './components/Register';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import users from './components/db';
-import ChatPage from './components/ChatPage';
-import Home from './components/Home';
+import users from './components/DataBase/db';
+import ChatPage from './components/ChatPage/ChatPage';
+import Home from './components/HomePage/Home';
+
 
 /*
 const x = () => {
@@ -38,7 +39,7 @@ function App() {
                     </Route>
                     <Route path='/chat'>
                         <ChatPage />
-                    </Route>
+                </Route>
                     
                 </Switch>
                

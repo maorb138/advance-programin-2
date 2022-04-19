@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './Register.css';
 import React from 'react';
-import './db.js'
+import './../DataBase/db.js';
 import { useHistory } from "react-router-dom";
-import  users from'./db.js'
+import  users from './../DataBase/db.js';
 
 
 function Register(props) {

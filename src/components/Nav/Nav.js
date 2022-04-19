@@ -12,6 +12,9 @@ function Nav() {
             <li className="nav-item">
                 <NavLink className="nav-link" to="/chat" >ChatPage</NavLink>
             </li>
+            <li className="nav-item">
+                <NavLink className="nav-link" to="/sidebar" >Sidebar</NavLink>
+            </li>
         </ul>
 		);
 }
