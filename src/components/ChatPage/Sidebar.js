@@ -1,5 +1,6 @@
 import './Sidebar.css'
 import './PopupImg.css'
+import users from '../DataBase/db';
 import Avatar from './../Image/profile-picture-boy-2.jpeg';
 import dot from "./../Image/3dot.jpg";
 function Sidebar(){
@@ -18,6 +19,10 @@ return(
   <img class="modal-content" id="img01"/>
   <div id="caption"></div>
 </div>
+  </div>
+  <div>
+ 
+  <input type="text" id="mySearch" onkeyup="mySearch(users)" placeholder="Search.." title="Type in a category"></input>
   </div>
 
  
@@ -60,6 +65,27 @@ function PopupImg(){
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() { 
       modal.style.display = "none";
+    }
+
+
+    ///search
+    function mySearch(users) {
+      // Declare variables
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("mySearch");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("users");
+      li = ul.getElementsByTagName("li");
+    
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
     }
 
 }

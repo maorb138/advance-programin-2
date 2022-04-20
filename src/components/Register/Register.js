@@ -56,15 +56,26 @@ function Register(props) {
                 return nickname;  
             }
         }
+        var count=0;
         users.map((x) => {
+        
+            console.log(username);
+            console.log("user name ======="+username);
+            console.log("count is :"+count);
             if (username === x.username && username == x.username) {
                 alert("An existing username in the system");
-                history.push("/login");
-                  
-            }
-            if(username !== x.username && username!=x.username ){
-                history.push("/chat");
+                count++;
+                    
+            }  if(username !== x.username && username!=x.username ){
+              
             } 
+            if(count>=1){
+               
+                history.push("/login");
+            }else{
+                history.push("/chat");
+
+            }
         });
 
 
@@ -166,4 +177,3 @@ image_input.addEventListener("change", function() {
             return myImage;
         }
     }
-
