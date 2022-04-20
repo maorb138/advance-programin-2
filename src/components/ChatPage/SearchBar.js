@@ -10,14 +10,27 @@ function SearchBar({ placeholder, data }) {
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
-    const newFilter = data.filter((value) => {
+
+    const byUserName = data.filter((value) => {
+      return value.username.toLowerCase().includes(searchWord.toLowerCase());
+    });
+
+    const byNickName = data.filter((value) => {
       return value.nickname.toLowerCase().includes(searchWord.toLowerCase());
     });
+
+    
+ 
+    
+    
 
     if (searchWord === "") {
       setFilteredData([]);
     } else {
-      setFilteredData(newFilter);
+   
+      setFilteredData(byNickName);
+      setFilteredData(byUserName);
+     
     }
   };
 
@@ -42,7 +55,11 @@ function SearchBar({ placeholder, data }) {
           {filteredData.slice(0, 15).map((value, key) => {
             return (
               <a className="dataItem" href={value.link} target="_blank">
-                <p>{value.nickname} </p>
+              <p className="nic">{"username:"}</p>
+              <p> {value.username}</p>
+                <p className="nic">{"nick:"}</p>
+                <p> {value.nickname}</p>
+                
               </a>
             );
           })}

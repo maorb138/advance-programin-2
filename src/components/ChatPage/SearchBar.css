@@ -16,7 +16,11 @@
     height: 30px;
     width: 300px;
   }
-  
+  .nic{
+    color: navy;
+    text-decoration: underline;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
   .searchIcon {
     height: 60px;
     width: 50px;
