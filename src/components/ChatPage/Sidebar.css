@@ -2,6 +2,8 @@
     background-image: url("./../Image/intro-connection-light.jpg");
     width: 400px;
     height: 750px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .first-row{
 width: 400px;
