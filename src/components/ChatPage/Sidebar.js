@@ -11,7 +11,6 @@ function Sidebar(){
 return(
   <div className="sidebar">
   <header className="first-row">
-  <div>
   <img id="myImg" className='myImg' onClick={PopupImg} src={Avatar} />
   <SearchBar id="search" placeholder="Search nickname.." data={Users} />
   <div id="myModal" class="modal">
@@ -20,7 +19,7 @@ return(
   <div id="caption"></div>
 </div>
 <Alert/ >
-</div>
+
 
 
 

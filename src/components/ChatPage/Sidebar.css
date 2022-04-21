@@ -14,7 +14,7 @@ height: 80px;
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    margin-left: 336px;
+    margin-left: 329px;
     margin-top: 15px;
 }
 
@@ -34,16 +34,16 @@ height: 80px;
   #myUL li a {
     border: 1px solid #ddd; /* Add a border to all links */
     margin-top: -1px; /* Prevent double borders */
-    background-color: #f6f6f6; /* Grey background color */
-    padding: 12px; /* Add some padding */
-    text-decoration: none; /* Remove default text underline */
-    font-size: 18px; /* Increase the font-size */
-    color: black; /* Add a black text color */
-    display: block; /* Make it into a block element to fill the whole list */
+    background-color: #f6f6f6; 
+    padding: 12px; 
+    text-decoration: none; 
+    font-size: 18px;
+    color: black; 
+    display: block; 
   }
   
   #myUL li a:hover:not(.header) {
-    background-color: #eee; /* Add a hover effect to all links, except for headers */
+    background-color: #eee; 
   }
   .alert{
   width: 456px;
