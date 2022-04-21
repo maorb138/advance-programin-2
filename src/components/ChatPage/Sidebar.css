@@ -43,3 +43,9 @@ height: 80px;
   #myUL li a:hover:not(.header) {
     background-color: #eee; /* Add a hover effect to all links, except for headers */
   }
+  .alert{
+  width: 456px;
+  height: 120px;
+  right: 10%;
+  }
+  

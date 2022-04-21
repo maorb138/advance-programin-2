@@ -3,6 +3,7 @@ import './PopupImg.css'
 import Users from '../DataBase/db';
 import Avatar from './../Image/profile-picture-boy-2.jpeg';
 import SearchBar from './SearchBar';
+import Alert from './Alert'
 
 function Sidebar(){
 
@@ -18,8 +19,8 @@ return(
   <img class="modal-content" id="img01"/>
   <div id="caption"></div>
 </div>
-
-  </div>
+<Alert/>
+</div>
 
 
  

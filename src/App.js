@@ -8,6 +8,7 @@ import users from './components/DataBase/db';
 import ChatPage from './components/ChatPage/ChatPage';
 import Home from './components/HomePage/Home';
 import Sidebar from './components/ChatPage/Sidebar';
+import Soon from './components/ChatPage/Soon';
 
 
 /*
@@ -46,6 +47,9 @@ function App() {
                 <Route path='/sidebar'>
                 <Sidebar />
         </Route>
+        <Route path='/soon'>
+        <Soon />
+</Route>
         
                 
                     
