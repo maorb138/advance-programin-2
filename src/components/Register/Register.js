@@ -4,6 +4,7 @@ import React from 'react';
 import './../DataBase/db.js';
 import { useHistory } from "react-router-dom";
 import  users from './../DataBase/db.js';
+import UserData from '../DataBase/UserData';
 
 
 function Register(props) {
@@ -15,6 +16,7 @@ function Register(props) {
         var password = document.getElementById("password").value;
         var confirmPass = document.getElementById("confirmPass").value;
         var myImage =  document.getElementById("image-input").files.length 
+        UserData.userN=username;
         props.func({ username: "omri", password: "1010" });
         console.log(username, nickname, password, confirmPass);
         passwordValidation(password, confirmPass);
@@ -34,7 +36,7 @@ function Register(props) {
         console.log(username, nickname, password, confirmPass);
         if (passwordValidation(password, confirmPass)) {
             console.log("its ok");
-    
+            UserData.passW=password;
             
         } else {
             console.log("its NOT ok");
@@ -49,14 +51,17 @@ function Register(props) {
             alert("you didnt chose nickname");
             alert("your nickname is:"+Newnickname);
             nickname=Newnickname;
+            UserData.nickN=Newnickname;
               return nickname;
             }else{
                  ///he wrote nickname in field;
                 console.log(nickname)
+                UserData.nickN=nickname;
                 return nickname;  
             }
         }
         var count=0;
+      props.users.push(UserData);
         users.map((x) => {
         
             console.log(username);
@@ -70,12 +75,13 @@ function Register(props) {
               
             } 
             if(count>=1){
-               
+                users.pop(UserData);
                 history.push("/login");
             }else{
-                history.push("/chat");
+               history.push("/sidebar");
 
-            }
+
+            }           
         });
 
 
@@ -172,8 +178,10 @@ image_input.addEventListener("change", function() {
             let i = Math.floor(Math.random() * 25);
            var newImage=window.open('./Emoji/'+i+'.png', "", "width=400,height=400");
            myImage=newImage;
+           UserData.imgU='abc';
            return myImage;
         }else{
+            UserData.imgU='abc';
             return myImage;
         }
     }

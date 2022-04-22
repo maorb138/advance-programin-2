@@ -18,12 +18,6 @@ function SearchBar({ placeholder, data }) {
     const byNickName = data.filter((value) => {
       return value.nickname.toLowerCase().includes(searchWord.toLowerCase());
     });
-
-    
- 
-    
-    
-
     if (searchWord === "") {
       setFilteredData([]);
     } else {

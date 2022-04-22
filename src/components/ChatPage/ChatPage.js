@@ -22,20 +22,7 @@ function ChatPage() {
         </div>
         );
 
-// function print(){
-//     for (let index = 0; index < users.length; index++) {
-//         const element = users[index].image;
-//         const element1 = users[index].nickname;
-//         const element2 = users[index].password;
-//         const element3 = users[index].username;
-//         console.log(element);
-//         console.log(element1);
-//         console.log(element2);
-//         console.log(element3);
-        
-        
-//     }
-// }
+
 
 }
 
