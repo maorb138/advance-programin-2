@@ -6,6 +6,7 @@ import SearchBar from './SearchBar';
 import Alert from './Alert'
 
 function Sidebar(){
+  
 
     
 return(

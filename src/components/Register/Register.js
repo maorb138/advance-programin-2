@@ -5,11 +5,14 @@ import './../DataBase/db.js';
 import { useHistory } from "react-router-dom";
 import  users from './../DataBase/db.js';
 import UserData from '../DataBase/UserData';
+import Sidebar from './../ChatPage/Sidebar';
 
 
 function Register(props) {
     const history = useHistory();
+
     const [err, seterr] = useState("");
+    
     const registerValid = () => {
         var username = document.getElementById("userName").value;
         var nickname = document.getElementById("nickname").value;
@@ -22,6 +25,7 @@ function Register(props) {
         passwordValidation(password, confirmPass);
          NickNameValidation(nickname);
          ImageValidation(myImage);
+    
 
     
         /*
@@ -76,9 +80,10 @@ function Register(props) {
             } 
             if(count>=1){
                 users.pop(UserData);
-                history.push("/login");
+        history.push("/login");  
             }else{
-               history.push("/sidebar");
+               
+        history.push("/sidebar");
 
 
             }           
@@ -114,6 +119,7 @@ function Register(props) {
              </div>
             <div className="col-12">
                 <button type="submit" onClick={registerValid} className="btn btn-primary mb-1">Sign-up</button>
+               
             </div>
         </form>
     );
@@ -185,3 +191,4 @@ image_input.addEventListener("change", function() {
             return myImage;
         }
     }
+    
