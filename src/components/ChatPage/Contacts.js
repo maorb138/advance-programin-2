@@ -1,7 +1,10 @@
 import './ChatPage.css';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
+import Avatar from './../Image/profile-picture-boy-2.jpeg';
+import './Sidebar.css';
+import './PopupImg.css';
+import { PopupImg } from './Sidebar.js';
 
 
 function Contacts({ user, contacts, users, addFriend, addContact }) {
@@ -17,9 +20,15 @@ function Contacts({ user, contacts, users, addFriend, addContact }) {
     return (
         <div class="card">
             <div class="card-header">
-                <h3>
+                <h6>
                     hello {user.username}
-                    </h3>
+                    </h6>
+                    <img id="myImg" className='myImg' onClick={PopupImg} src={Avatar} />
+                    <div id="myModal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img01"/>
+                    <div id="caption"></div>
+                  </div>
                 <input className="searchBox" type='search' placeholder='search'></input>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -30,5 +39,6 @@ function Contacts({ user, contacts, users, addFriend, addContact }) {
             </div>
         )
 }
+
 
 export default Contacts;

@@ -3,10 +3,7 @@ import './PopupImg.css'
 import Avatar from './../Image/profile-picture-boy-2.jpeg';
 import dot from "./../Image/3dot.jpg";
 function Sidebar(){
-const Sidebar = () =>{
   
-
-}
     
 return(
   <div className="sidebar">
@@ -41,7 +38,7 @@ return(
 
 
 
-function PopupImg(){
+export function PopupImg(){
     var modal = document.getElementById("myModal");
 
     // Get the image and insert it inside the modal - use its "alt" text as a caption
@@ -61,7 +58,7 @@ function PopupImg(){
     span.onclick = function() { 
       modal.style.display = "none";
     }
-
 }
+
 
 export default Sidebar;

@@ -1,6 +1,7 @@
 import './Message.css';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import Avatar from './../Image/profile-picture-boy-2.jpeg';
 
 function Message() {
     return (
