@@ -6,10 +6,12 @@ import Contacts from './Contacts';
 import Messages from './Messages';
 import Sidebar from './Sidebar';
 
-function ChatPage({ users, addContacts }) {
-    const messages1 = [{ sent: false, message: 'hello1' }, { sent: true, message: 'hello2' }, { sent: true, message: 'hello3' }, { sent: false, message: 'hello2' }];
+function ChatPage({ users, addContacts, saveData }) {
+    const messages1 = [{ sent: false, message: 'hello1' }, { sent: true, message: 'hello2' }, { sent: true, message: 'hello3' }, { sent: false, message: 'hello4' }];
     const [messages, setMess] = useState(messages1);
     const [user, setUser] = useState(useLocation().state);
+    const [contact, setContact] = useState('');
+
     const [contacts, setcontacts] = useState(user.contacts);
     console.log(user.contacts);
 
@@ -18,8 +20,10 @@ function ChatPage({ users, addContacts }) {
     const changeChat = (contact) => {
         user.contacts.map((e) => {
             if (e.username == contact) {
-                console.log(e)
-                setMess([e.mem])
+                console.log(e);
+                //var c = e.contacts.filter(i => i.username == contact);
+                setMess(e.mem);
+                setContact(contact);
             }
 
         })
@@ -30,12 +34,15 @@ function ChatPage({ users, addContacts }) {
         if (e.keyCode === 13 && message.value !== '') {
             const newMess = messages.concat([{ sent: true, message: e.target.value }]);
             setMess(newMess);
+            saveData(user, contact ,e.target.value)
             message.value = '';
         }
         else if (e.target.tagName.toLowerCase() == 'button' && message.value !== '') {
             console.log(message.value);
             const newMess = messages.concat([{ sent: true, message: message.value }]);
             setMess(newMess);
+            saveData(user, contact, e.target.value)
+
             message.value = '';
 
         }
@@ -43,35 +50,37 @@ function ChatPage({ users, addContacts }) {
 
     const addFriend = function (username) {
 
-        let flag = 1, count = 0;
+        var flag = true, count = 0;
 
         if (username == user.username) {
             console.log("cant add yourself");
+            flag = false;
             return;
         }
-        flag = user.contacts.forEach((i) => {
+        user.contacts.forEach((i) => {
             if (username == i.username) {
                 console.log("already friends");
-                return 0;
+                flag = false;
             }
-            return 1;
         })
         users.map((x) => {
-            if (x.username !== username)count++;
+            if (x.username != username)count++;
 
         });
-        if (count == users.lenght) {
+        if (count === users.length) {
             console.log('not exists');
             return;
         }
-        addContacts(user, contacts.concat([{ username: 'user1', mem: []}]));
-        setcontacts(contacts.concat([{ username: 'user1', mem: []}]))
+
+        if (!flag) return;
+        addContacts(user, contacts.concat([{ username: username, mem: [] }]));
+        setcontacts(contacts.concat([{ username: username, mem: [] }]))
 
     }
     console.log(user);
     return (
         <div className="chat1">
-            {user != null ? < Contacts user={user} contacts={contacts} users={users} addFriend={addFriend} changeChat={changeChat} /> : null}
+            {user !== null ? < Contacts user={user} contacts={contacts} users={users} addFriend={addFriend} changeChat={changeChat} /> : null}
 
             <div className="mainChat">
                 <Messages messages={messages} />
