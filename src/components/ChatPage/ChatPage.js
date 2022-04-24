@@ -7,7 +7,7 @@ import Messages from './Messages';
 import Sidebar from './Sidebar';
 
 function ChatPage({ users, addContacts }) {
-    var messages1 = ['c1', 'c2', 'c1', 'c2', 'c1', 'c2', 'c1', 'c2', 'c1', 'c2', 'c1', 'c2', 'c2'];
+    const messages1 = [{ sent: false, message: 'hello1' }, { sent: true, message: 'hello2' }, { sent: true, message: 'hello3' }, { sent: false, message: 'hello2' }];
     const [messages, setMess] = useState(messages1);
     const [user, setUser] = useState(useLocation().state);
     const [contacts, setcontacts] = useState(user.contacts);
@@ -27,14 +27,14 @@ function ChatPage({ users, addContacts }) {
 
     const showMessege = (e) => {
         var message = document.getElementsByClassName("textinp")[0];
-        if (e.keyCode === 13 && message.value!==''){
-            const newMess = messages.concat([e.target.value]);
+        if (e.keyCode === 13 && message.value !== '') {
+            const newMess = messages.concat([{ sent: true, message: e.target.value }]);
             setMess(newMess);
             message.value = '';
         }
         else if (e.target.tagName.toLowerCase() == 'button' && message.value !== '') {
             console.log(message.value);
-            const newMess = messages.concat(message.value);
+            const newMess = messages.concat([{ sent: true, message: message.value }]);
             setMess(newMess);
             message.value = '';
 
@@ -64,14 +64,14 @@ function ChatPage({ users, addContacts }) {
             console.log('not exists');
             return;
         }
-        addContacts(user, contacts.concat([{ username: 'user1', mem: '' }]));
-        setcontacts(contacts.concat([{ username: 'user1', mem: '' }]))
+        addContacts(user, contacts.concat([{ username: 'user1', mem: []}]));
+        setcontacts(contacts.concat([{ username: 'user1', mem: []}]))
 
     }
-    console.log(user.contacts);
+    console.log(user);
     return (
         <div className="chat1">
-            {user !== null ? < Contacts user={user} contacts={contacts} users={users} addFriend={addFriend} changeChat={changeChat} /> : null}
+            {user != null ? < Contacts user={user} contacts={contacts} users={users} addFriend={addFriend} changeChat={changeChat} /> : null}
 
             <div className="mainChat">
                 <Messages messages={messages} />
