@@ -1,21 +1,154 @@
 .chat1 {
-    background-color: ghostwhite;
+    background-color: whitesmoke;
     color: chartreuse;
-    max-width:100%;
-    height: 400px;
-    margin-left: 20%;
-    margin-right: 20%;
-    position:sticky;
-    overflow: scroll;
-    border: 5px solid red;
-    text-align:center;
-}
-.hello.nav {
+    max-width: 100%;
+    height: 450px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 1px solid black;
+    border-radius: 30px;
+    text-align: center;
+    display: flex;
+    box-shadow: 10px 10px 10px #888888;
+    //box-shadow: inset 0 0 5px grey;
     position: relative;
-    background-color: white;
-
+    margin-top: 3%;
 }
 
-.hello .nav-link {
+.list-group-item {
+    background-color: aqua;
+}
+
+.card {
+    position: relative;
+    background-color: green;
+    width: 20%;
+    height: 100%;
+    display: inline-block;
+    background-color: floralwhite;
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+}
+
+    .card .card-header {
+        color: black;
+    }
+
+.mess {
+    width: 100%;
+}
+
+.profile {
+    text-align: left;
+    color: gray;
+    background-color: lightgray;
+}
+
+.searchBox {
+    width: 100%;
+    border-radius: 15px;
+}
+
+
+.card ul {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 70%;
+}
+
+.mainChat {
+    background-color: floralwhite;
+    bottom: 10%;
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    height: 90%;
+    max-height: 100%;
+    width: 80%;
+    border-top-right-radius: 30px;
+    overflow-x: hidden;
+    display: flex;
+    //flex-direction: column-reverse;
+}
+
+
+
+
+.hii, .c2 {
+    justify-content: left;
+    margin-left: 0px;
+    color: orange;
+    position: relative;
+    background-color: lightblue;
+}
+
+.form-control1 {
+    bottom: 0px;
+    right: 0px;
+    background-color: white;
+    height: 10%;
+    width: 80%;
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: 0 .25rem;
+    border-top-left-radius: 0 .25rem;
+    position: absolute;
+    border-top: 1px solid black;
+}
+
+.c1 {
+    justify-content: right;
+    margin-right: 0px;
+    color: hotpink;
+    position: relative;
+    background-color: gold;
+}
+
+.textinp {
+    position: absolute;
+    height: 100%;
+    width: 85%;
+    right: 0px;
+    bottom: 0px;
+    border-bottom-right-radius: inherit;
+    border: none;
+}
+
+.btn-success {
+    position: absolute;
+    margin: 0px;
+    left: 0px;
+    height: 70px;
+    width: 15%;
     color: black;
+}
+
+.addButtons {
+    bottom: 10%;
+    left: 20%;
+    background-color: blue;
+    height: 7%;
+    width: 40%;
+    position: absolute;
+}
+
+.c1, .c2, .hii {
+    scroll-behavior: auto;
+    height: 50px;
+    border-block-start: 0.3px solid gray;
+    padding: 10px;
+    overflow: auto;
+}
+
+
+.btn-primary.addFriend {
+    width: 60%;
+    height: 10%;
+    margin-left: 20%;
+    position: relative;
+    bottom: 0px;
+}
+
+.bi.bi-person-plus-fill {
+    height: 10px;
 }

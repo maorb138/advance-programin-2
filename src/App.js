@@ -8,6 +8,7 @@ import users from './components/DataBase/db';
 import ChatPage from './components/ChatPage/ChatPage';
 import Home from './components/HomePage/Home';
 import Sidebar from './components/ChatPage/Sidebar';
+import Soon from './components/ChatPage/Soon';
 
 
 /*
@@ -26,6 +27,9 @@ function App() {
         setUsers(_users.concat(user));
     }
     //{page !== 'Register' ? <Login /> : <Register />}
+    const addContacts = (a,b) => {
+        console.log(a, b);
+    }
     return (
 
         <Router>
@@ -33,7 +37,7 @@ function App() {
             <div className="App">
                 <Nav />
                 <Switch>
-                    <Route exact path='/login'>
+                    <Route exact path='/'>
                     <Home></Home>
                         <Login users={_users} />
                     </Route>
@@ -42,11 +46,14 @@ function App() {
                         <Register users={_users} func={foo}/>
                     </Route>
                     <Route path='/chat'>
-                        <ChatPage />
+                        <ChatPage users={users} addContacts={addContacts} />
                 </Route>
                 <Route path='/sidebar'>
                 <Sidebar />
         </Route>
+        <Route path='/soon'>
+        <Soon />
+</Route>
         
                 
                     

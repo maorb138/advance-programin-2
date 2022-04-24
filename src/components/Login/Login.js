@@ -29,7 +29,7 @@ function Login(props) {
         props.users.map((x) => {
             if (username === x.username && password === x.password) {
                 console.log("yees you are login");
-                history.push("/chat");
+                history.push("/chat",x);
                 return;
             }
         

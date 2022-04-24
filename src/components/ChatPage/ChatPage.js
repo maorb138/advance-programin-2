@@ -12,7 +12,7 @@ function ChatPage({ users, addContacts }) {
     const [contacts, setcontacts] = useState(user.contacts);
     //document.getElementsByClassName('mainChat')[0].scrollTop = document.getElementsByClassName('mainChat')[0].scrollHeight;
 
-
+    console.log(user)
     const showMessege = (e) => {
         var message = document.getElementsByClassName("textinp")[0];
         if (e.keyCode === 13 ){
@@ -78,6 +78,9 @@ function ChatPage({ users, addContacts }) {
             </div>
          </div>
         );
+
+
+
 }
 
 export default ChatPage;
