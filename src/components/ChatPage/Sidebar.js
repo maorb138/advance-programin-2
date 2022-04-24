@@ -3,7 +3,7 @@ import './PopupImg.css'
 import Users from '../DataBase/db';
 import Avatar from './../Image/profile-picture-boy-2.jpeg';
 import SearchBar from './SearchBar';
-import Alert from './Alert'
+import Alert from './Alert';
 
 function Sidebar(){
   
