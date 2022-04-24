@@ -21,8 +21,8 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
             <div class="card-header">
                 <h6>
                     hello {user.username}
-                    </h6>
-                    <img id="myImg" className='myImg' onClick={PopupImg} src={Avatar} />
+                </h6>
+                <img id="myImg" className='myImg' onClick={PopupImg} src={user.image} />
                     <div id="myModal" class="modal">
                     <span class="close">&times;</span>
                     <img class="modal-content" id="img01"/>
