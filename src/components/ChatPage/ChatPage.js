@@ -12,7 +12,6 @@ function ChatPage({ users, addContacts }) {
     const [contacts, setcontacts] = useState(user.contacts);
     //document.getElementsByClassName('mainChat')[0].scrollTop = document.getElementsByClassName('mainChat')[0].scrollHeight;
 
-    console.log(user)
     const showMessege = (e) => {
         var message = document.getElementsByClassName("textinp")[0];
         if (e.keyCode === 13 ){
@@ -46,7 +45,6 @@ function ChatPage({ users, addContacts }) {
             }
             return 1;
         })
-        console.log(contacts);
         users.map((x) => {
             if (x.username !== username)count++;
 
@@ -55,10 +53,9 @@ function ChatPage({ users, addContacts }) {
             console.log('not exists');
             return;
         }
-        console.log('now you and', username, 'are friends');
-        console.log(contacts)
-        //setcontacts(contacts.concat([{ username: 'user1', mem: '' }]))
-        addContacts(user, [{ username: 'user1', mem: '' }]);
+        console.log('now you and', username,'are friends');
+        setcontacts(contacts.concat([{ username: 'user1', mem: '' }]))
+        //addContacts(user, [{ username: 'user1', mem: '' }]);
 
     }
     //console.log(location.state);

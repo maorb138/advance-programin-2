@@ -26,9 +26,17 @@ function App() {
         console.log(_users.length);
         setUsers(_users.concat(user));
     }
-    //{page !== 'Register' ? <Login /> : <Register />}
-    const addContacts = (a,b) => {
-        console.log(a, b);
+
+    const addContacts = function (a, b) {
+        //console.log(a, b);
+        const newUser = { username: a.username, nickname: a.nickname, password: a.password, image: a.image, contacts: a.contacts.concat(b) };
+        console.log(newUser);
+        const x = _users.filter((i) => {
+            console.log(i, a);
+            return a.username !== i.username;
+        })
+        console.log(_users.length);
+        //setUsers(newUser);
     }
     return (
 

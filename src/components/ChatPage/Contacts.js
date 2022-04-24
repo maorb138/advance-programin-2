@@ -5,8 +5,7 @@ import { useEffect, useState } from 'react';
 
 
 function Contacts({ user, contacts, users, addFriend, addContact }) {
-    console.log(user.contacts);
-
+    
 
     const showContacts = contacts.map((friend) => {
         console.log(friend.username);
