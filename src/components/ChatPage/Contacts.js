@@ -7,12 +7,11 @@ import './PopupImg.css';
 import { PopupImg } from './Sidebar.js';
 
 
-function Contacts({ user, contacts, users, addFriend, addContact }) {
+function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) {
     
 
     const showContacts = contacts.map((friend) => {
-        console.log(friend.username);
-        return <li class="list-group-item profile"> {friend.username}
+        return <li onClick={(e) => changeChat(friend.username)} class="list-group-item profile"> {friend.username}
         </li>
     })
 
@@ -35,7 +34,8 @@ function Contacts({ user, contacts, users, addFriend, addContact }) {
                 <NavLink to='#' class="list-group-item">An item</NavLink>
                 {showContacts}
             </ul>
-            <button type="button" onClick={() => { addFriend( 'user3') }} className="btn btn-primary addFriend">Add a Friend</button>
+
+            <button type="button" onClick={() => { addFriend('user3') }} className="btn btn-primary addFriend">Add a Friend</button>
             </div>
         )
 }
