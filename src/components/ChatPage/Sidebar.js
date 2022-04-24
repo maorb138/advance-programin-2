@@ -1,29 +1,36 @@
 import './Sidebar.css'
 import './PopupImg.css'
+import Users from '../DataBase/db';
 import Avatar from './../Image/profile-picture-boy-2.jpeg';
-import dot from "./../Image/3dot.jpg";
+import SearchBar from './SearchBar';
+import Alert from './Alert'
+
 function Sidebar(){
   
+
     
 return(
   <div className="sidebar">
   <header className="first-row">
   <div>
   <img id="myImg" className='myImg' onClick={PopupImg} src={Avatar} />
+  <SearchBar id="search" placeholder="Search.." data={Users} />
   <div id="myModal" class="modal">
   <span class="close">&times;</span>
   <img class="modal-content" id="img01"/>
   <div id="caption"></div>
 </div>
-  </div>
+<Alert/ >
+</div>
+
+
+
 
  
   
   
   
   </header>
-  
-  
   </div>
 );
 
@@ -58,7 +65,33 @@ export function PopupImg(){
     span.onclick = function() { 
       modal.style.display = "none";
     }
-}
+  }
+
+
+    ///search
+    function SearchName(){
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById('myInput');
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myUL");
+      li = ul.getElementsByTagName('li');
+    
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+  }
+
+    
+      
+
+
 
 
 export default Sidebar;
