@@ -33,7 +33,7 @@
 
     .card .card-header {
         color: black;
-        
+        border-top-left-radius: inherit;
     }
 
 .mess {
@@ -55,7 +55,7 @@
 .card ul {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 70%;
+    height: 60%;
 }
 
 .mainChat {

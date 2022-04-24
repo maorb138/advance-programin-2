@@ -6,10 +6,8 @@ import Message from './Message';
 
 function Messages({ messages }) {
     console.log(typeof messages);
-    const a = useRef(null)
     const [mess, setmess] = useState(messages);
     const t = messages.map((i) => {
-
         return <Message />
     })
 
