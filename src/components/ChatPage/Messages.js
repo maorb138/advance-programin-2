@@ -9,7 +9,7 @@ function Messages({ messages }) {
 
     const [mess, setmess] = useState(messages);
     const t = messages.map((i) => {
-        return <Message sent={i.sent}/>
+        return <Message sent={i.sent} data={i.message}/>
     })
 
     return (
