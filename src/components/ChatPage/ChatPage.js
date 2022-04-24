@@ -10,18 +10,28 @@ function ChatPage({ users, addContacts }) {
     const [messages, setMess] = useState(messages1);
     const [user, setUser] = useState(useLocation().state);
     const [contacts, setcontacts] = useState(user.contacts);
+    console.log(user.contacts);
+
     //document.getElementsByClassName('mainChat')[0].scrollTop = document.getElementsByClassName('mainChat')[0].scrollHeight;
+
+    const changeChat = (contact) => {
+        user.contacts.map((e) => {
+            if (e.username == contact) {
+                console.log(e)
+                setMess([e.mem])
+            }
+
+        })
+    }
 
     const showMessege = (e) => {
         var message = document.getElementsByClassName("textinp")[0];
-        if (e.keyCode === 13 ){
-            console.log('--------->', messages, e.target);
+        if (e.keyCode === 13 && message.value!==''){
             const newMess = messages.concat([e.target.value]);
             setMess(newMess);
-            console.log('--------->', messages);
             message.value = '';
         }
-        else if (e.target.tagName.toLowerCase() == 'button') {
+        else if (e.target.tagName.toLowerCase() == 'button' && message.value !== '') {
             console.log(message.value);
             const newMess = messages.concat(message.value);
             setMess(newMess);
@@ -53,15 +63,14 @@ function ChatPage({ users, addContacts }) {
             console.log('not exists');
             return;
         }
-        console.log('now you and', username,'are friends');
+        addContacts(user, contacts.concat([{ username: 'user1', mem: '' }]));
         setcontacts(contacts.concat([{ username: 'user1', mem: '' }]))
-        //addContacts(user, [{ username: 'user1', mem: '' }]);
 
     }
-    //console.log(location.state);
+    console.log(user.contacts);
     return (
         <div className="chat1">
-            {user !== null ? < Contacts user={user} contacts={contacts} users={users} addFriend={addFriend} /> : null}
+            {user !== null ? < Contacts user={user} contacts={contacts} users={users} addFriend={addFriend} changeChat={changeChat} /> : null}
 
             <div className="mainChat">
                 <Messages messages={messages} />
