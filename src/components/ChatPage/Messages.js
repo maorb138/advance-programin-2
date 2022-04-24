@@ -5,11 +5,11 @@ import Avatar from './../Image/profile-picture-boy-1.jpeg';
 
 
 
-function Messages({ messages }) {
+function Messages({ messages ,img}) {
 
     const [mess, setmess] = useState(messages);
     const t = messages.map((i) => {
-        return <Message sent={i.sent} data={i.message}/>
+        return <Message sent={i.sent} data={i.message} img={img}/>
     })
 
     return (
