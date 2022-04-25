@@ -10,7 +10,7 @@ function Message({sent,data,img}) {
         return <div className="container lighter">
             <img src={img} className='right' alt="Avatar"></img>
             <p>{data}</p>
-            <span className="time-right">11:00</span>
+            <span className="time-right">{time}</span>
         </div>
     } else {
         return <div className="container darker">
