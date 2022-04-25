@@ -25,7 +25,7 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
         })
         const ken = q[0].mem[0];
 
-        console.log(ken);
+        console.log(friend);
         
         return <li onClick={(e) => changeChat(friend.username)} class="list-group-item profile">
         <div className='contactProfile'> 

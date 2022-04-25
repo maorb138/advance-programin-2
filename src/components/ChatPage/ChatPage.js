@@ -38,14 +38,16 @@ function ChatPage({ users, addContacts }) {
             newMess = messages.concat([{ sent: true, message: e.target.value, last: time}]);
             setMess(newMess);
             var g = user.contacts.find(x => x.username === contact);
-            g.mem = g.mem.concat({ sent: true, message: e.target.value, last: time});
+            g.mem = g.mem.concat({ sent: true, message: e.target.value, last: time });
+            g.last = time;
             message.value = '';
         }
         else if (e.target.tagName.toLowerCase() == 'button' && message.value !== '') {
             newMess = messages.concat([{ sent: true, message: message.value, last: time }]);
             setMess(newMess);
             const g = user.contacts.find(x => x.username === contact);
-            g.mem = g.mem.concat({ sent: true, message: message.value, last: time});
+            g.mem = g.mem.concat({ sent: true, message: message.value, last: time });
+            g.last = time;
             message.value = '';
         }
 
