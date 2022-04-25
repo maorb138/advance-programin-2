@@ -53,25 +53,25 @@ function Register(props) {
         
         <form id='form1' className="row g-3">
             <div className="header1"> Sign-up</div>
-            <div className="md-4">
+            <div className="md-4-row">
                 <label className="form-label">Username:</label>
                 <input id="userName" type="text"  className="form-control inp" required></input>
             </div>
-            <div className="md-4">
+            <div className="md-4-row">
                 <label className="form-label">Nickname:</label>
                 <input id="nickname" type="text" className="form-control inp" ></input>
             </div>
-            <div className="md-4">
+            <div className="md-4-row">
                 <label className="form-label">password:</label>
                 <input id="password" type="password" className="form-control inp"  required></input>
             </div>
-            <div className="md-4">
+            <div className="md-4-row">
                 <label className="form-label">confirm password:</label>
                 <input id="confirmPass" type="password" className="form-control inp" required></input>
             </div>
             <div>
                 <input type="file" id="image-input" onChange={(e) => setfile(URL.createObjectURL(e.target.files[0]))} onClick={displayimage} accept="image/jpeg, image/png, image/jpg" />
-            <div id="display-image" />
+            <div id="display-image"></div>
             </div>
             <div className="col-12">
                 <button type="button" onClick={registerValid} className="btn btn-primary mb-1">Sign-up</button>
@@ -134,16 +134,16 @@ function displayimage(){
       reader.readAsDataURL(this.files[0]);
     });
 }
-    function ImageValidation(myImage){
-        if(myImage===0){    
-            alert("you didnt choose any image");
-            alert("this is your new profile image:");
-            let i = Math.floor(Math.random() * 25);
-           var newImage=window.open('./Emoji/'+i+'.png', "", "width=400,height=400");
-           myImage=newImage;
-           return myImage;
-        }else{
-            return myImage;
-        }
+function ImageValidation(myImage){
+    if(myImage===0){    
+        alert("you didnt choose any image");
+        alert("this is your new profile image:");
+        let i = Math.floor(Math.random() * 25);
+        var newImage=window.open('./Emoji/'+i+'.png', "", "width=400,height=400");
+        myImage=newImage;
+        return myImage;
+    }else{
+        return myImage;
     }
+}
     
