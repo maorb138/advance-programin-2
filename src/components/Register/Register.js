@@ -4,22 +4,28 @@ import React from 'react';
 import './../DataBase/db.js';
 import { useHistory } from "react-router-dom";
 import  users from './../DataBase/db.js';
+import UserData from '../DataBase/UserData';
+import Sidebar from './../ChatPage/Sidebar';
 
 
 function Register(props) {
     const history = useHistory();
+
     const [err, seterr] = useState("");
+    const [file, setfile] = useState(null);
+    
     const registerValid = () => {
         var username = document.getElementById("userName").value;
         var nickname = document.getElementById("nickname").value;
         var password = document.getElementById("password").value;
         var confirmPass = document.getElementById("confirmPass").value;
         var myImage =  document.getElementById("image-input").files.length 
-        props.func({ username: "omri", password: "1010" });
+        UserData.userN = username;
         console.log(username, nickname, password, confirmPass);
         passwordValidation(password, confirmPass);
          NickNameValidation(nickname);
          ImageValidation(myImage);
+    
 
     
         /*
@@ -34,7 +40,7 @@ function Register(props) {
         console.log(username, nickname, password, confirmPass);
         if (passwordValidation(password, confirmPass)) {
             console.log("its ok");
-    
+            UserData.passW=password;
             
         } else {
             console.log("its NOT ok");
@@ -49,28 +55,43 @@ function Register(props) {
             alert("you didnt chose nickname");
             alert("your nickname is:"+Newnickname);
             nickname=Newnickname;
+            UserData.nickN=Newnickname;
               return nickname;
             }else{
                  ///he wrote nickname in field;
                 console.log(nickname)
+                UserData.nickN=nickname;
                 return nickname;  
             }
         }
+        var count = 0;
+        console.log("*************************************")
+        props.addUsers(props.users.concat([{ username: "user1", password: "1010", image: file, contacts: [{ username: '', mem: '' }, { username: '', mem: '' }] }]));
+
         users.map((x) => {
+        
+
             if (username === x.username && username == x.username) {
                 alert("An existing username in the system");
-                history.push("/login");
-                  
-            }
-            if(username !== x.username && username!=x.username ){
-                history.push("/chat");
+                count++;
+                    
+            }  if(username !== x.username && username!=x.username ){
+              
             } 
+            if(count>=1){
+                users.pop(UserData);
+        history.push("/");  
+            }else{
+               
+        //history.push("/chat");
+
+
+            }           
         });
 
 
-  
-}
-    
+
+    }
     return (
         
         <form id='form1' className="row g-3">
@@ -92,11 +113,13 @@ function Register(props) {
                 <input id="confirmPass" type="password" className="form-control inp" required></input>
             </div>
             <div>
-            <input type="file" id="image-input" onClick={displayimage} accept="image/jpeg, image/png, image/jpg" />
+                <input type="file" id="image-input" onChange={(e) => setfile(URL.createObjectURL(e.target.files[0]))} conClick={displayimage} accept="image/jpeg, image/png, image/jpg" />
             <div id="display-image" />
-             </div>
+            </div>
+            <img src={file}></img>
             <div className="col-12">
                 <button type="submit" onClick={registerValid} className="btn btn-primary mb-1">Sign-up</button>
+               
             </div>
         </form>
     );
@@ -161,9 +184,11 @@ image_input.addEventListener("change", function() {
             let i = Math.floor(Math.random() * 25);
            var newImage=window.open('./Emoji/'+i+'.png', "", "width=400,height=400");
            myImage=newImage;
+           UserData.imgU='abc';
            return myImage;
         }else{
+            UserData.imgU='abc';
             return myImage;
         }
     }
-
+    
