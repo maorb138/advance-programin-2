@@ -7,8 +7,17 @@ import './PopupImg.css';
 import { PopupImg } from './Sidebar.js';
 
 
+
+
 function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) {
     
+    function getImage(user){
+        var image;
+        users.map((x)=>{
+            if(x.username===user)image=x.image;
+        })
+        return image;
+    }
 
     const showContacts = contacts.map((friend) => {
         const q = user.contacts.filter((x) => {
@@ -23,7 +32,7 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
         return <li onClick={(e) => changeChat(friend.username)} class="list-group-item profile">
         <div className='contactProfile'> 
         <div className='contactName'>{friend.username}</div>
-        <img className='imgcon' src={friend.image} onClick={PopupImg}></img>
+        <img className='imgcon' src={getImage(friend.username)} onClick={PopupImg}></img>
         <time className='time'><span>{time}</span></time>
         </div> 
            
