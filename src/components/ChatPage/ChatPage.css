@@ -3,8 +3,8 @@
     color: chartreuse;
     max-width: 100%;
     height: 450px;
-    width: 80%;
-    margin-left: 10%;
+    width: 100%;
+    //margin-left: 10%;
     margin-right: 10%;
     border: 1px solid black;
     border-radius: 30px;
@@ -15,39 +15,15 @@
     position: relative;
     margin-top: 3%;
 }
-.imgcon{
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 12px;
-    left: 16px;
-}
-.contactName{
-    color: black;
-    width: 40px;
-    height: 40px;
-    top: 0;
-    margin-left:48%;
-}
-.time{
-margin-left: 70%;
-width: 40px;
-height: 40px;
-top: 0;
-color: black;
 
-}
 .list-group-item {
     background-color: aqua;
-    width: 100%;
 }
-
 
 .card {
     position: relative;
     background-color: green;
-    width: 20%;
+    width: 25%;
     height: 100%;
     display: inline-block;
     background-color: floralwhite;
@@ -90,7 +66,7 @@ color: black;
     position: absolute;
     height: 90%;
     max-height: 100%;
-    width: 80%;
+    width: 75%;
     border-top-right-radius: 30px;
     overflow-x: hidden;
     display: flex;
@@ -113,7 +89,7 @@ color: black;
     right: 0px;
     background-color: white;
     height: 10%;
-    width: 80%;
+    width: 75%;
     border-bottom-right-radius: inherit;
     border-bottom-left-radius: 0 .25rem;
     border-top-left-radius: 0 .25rem;
@@ -132,10 +108,10 @@ color: black;
 .textinp {
     position: absolute;
     height: 100%;
-    width: 85%;
+    width: 50%;
     right: 0px;
+    left: 20%;
     bottom: 0px;
-    border-bottom-right-radius: inherit;
     border: none;
 }
 
@@ -144,18 +120,19 @@ color: black;
     margin: 0px;
     left: 0px;
     height: 100%;
-    max-height:100%;
-    width: 15%;
+    max-height: 100%;
+    width: 20%;
     color: black;
 }
 
 .addButtons {
-    bottom: 10%;
-    left: 20%;
+    right: 0px;
     background-color: blue;
-    height: 7%;
-    width: 40%;
+    height: 100%;
+    width: 30%;
     position: absolute;
+    border-bottom-right-radius: inherit;
+    justify-content: left;
 }
 
 .c1, .c2, .hii {
@@ -177,4 +154,11 @@ color: black;
 
 .bi.bi-person-plus-fill {
     height: 10px;
+}
+
+
+.col .addButtons {
+    left: 0px;
+    height: 100px;
+    position: absolute;
 }
