@@ -3,8 +3,8 @@ import './Register.css';
 import React from 'react';
 import './../DataBase/db.js';
 import { useHistory } from "react-router-dom";
-import  users from './../DataBase/db.js';
-import Sidebar from './../ChatPage/Sidebar';
+import DefaultImage from './../Image/profile-picture-boy-1.jpeg';
+
 
 
 function Register(props) {
@@ -23,20 +23,25 @@ function Register(props) {
 
         
         var flag = true;
-
-        users.map((x) => {
+        props.users.map((x) => {
 
             if (username === x.username) {
                 alert("An existing username in the system");
                 flag = false;
             }          
         });
-
-
-        if (passwordValidation(password, confirmPass) && username !=='' && flag) {
+        if (username === '') {
+            flag = false;
+            alert("type a username");
+        }
+        if (file === null) {
+            setfile(DefaultImage);
+        }
+        if (passwordValidation(password, confirmPass) && flag) {
             console.log("its ok");
             const newUser = { username: username, password: password, image: file, contacts: [{ username: 'hi', mem: [{ sent: false, message: '' }, { sent: false, message: '' }] }, { username: 'bye', mem: [{ sent: true, message: '' }, { sent: true, message: '' }] }] };
-            props.addUsers(props.users.concat([newUser ]));
+            props.addUsers(props.users.concat([newUser]));
+            alert('welcome '+ username);
             history.push('/chat', newUser);
 
         } else {
