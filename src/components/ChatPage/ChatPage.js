@@ -85,12 +85,16 @@ function ChatPage({ users, addContacts }) {
             <div className="mainChat">
                 <Messages messages={messages} img={user.image} />
             </div>
-            <div className="addButtons">
-                hello world
-                </div>
+
             <div className="form-control1">
-                <input autoComplete="off" onKeyDown={sendMessage } className="textinp" type="text" id="formGroupExampleInput" placeholder="Enter a messege"></input>
-                <button onClick={sendMessage } type="button" class="btn btn-success">Send</button>
+                <div className="addButtons">
+                    <button className='col'>image <i className="bi bi-image"></i></button>
+                    <button className='col'>video <i className="bi bi-film"></i></button>
+                    <button className='col'>record<i className="bi bi-mic-fill"></i></button>
+
+                </div>
+                <input autoComplete="off" onKeyDown={sendMessage} className="textinp" type="text" id="formGroupExampleInput" placeholder="Enter a messege"></input>
+                <button onClick={sendMessage} type="button" class="btn btn-success">Send</button>
             </div>
          </div>
         );
