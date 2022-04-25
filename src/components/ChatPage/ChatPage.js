@@ -31,19 +31,21 @@ function ChatPage({ users, addContacts }) {
     const sendMessage = (e) => {
         var message = document.getElementsByClassName("textinp")[0];
         var newMess;
+        var today = new Date();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
         if (e.keyCode === 13 && message.value !== '') {
-            newMess = messages.concat([{ sent: true, message: e.target.value }]);
+            newMess = messages.concat([{ sent: true, message: e.target.value, last: time}]);
             setMess(newMess);
             var g = user.contacts.find(x => x.username === contact);
-            g.mem = g.mem.concat({ sent: true, message: e.target.value });
+            g.mem = g.mem.concat({ sent: true, message: e.target.value, last: time});
             message.value = '';
         }
         else if (e.target.tagName.toLowerCase() == 'button' && message.value !== '') {
-            newMess = messages.concat([{ sent: true, message: message.value }]);
+            newMess = messages.concat([{ sent: true, message: message.value, last: time }]);
             setMess(newMess);
             const g = user.contacts.find(x => x.username === contact);
-            g.mem = g.mem.concat({ sent: true, message: message.value });
+            g.mem = g.mem.concat({ sent: true, message: message.value, last: time});
             message.value = '';
         }
 
@@ -74,8 +76,8 @@ function ChatPage({ users, addContacts }) {
         }
 
         if (!flag) return;
-        addContacts(user, contacts.concat([{ username: username, mem: [] }]));
-        setcontacts(contacts.concat([{ username: username, mem: [] }]))
+        addContacts(user, contacts.concat([{ username: username, mem: [] ,last:null}]));
+        setcontacts(contacts.concat([{ username: username, mem: [], last: null }]))
 
     }
     return (
