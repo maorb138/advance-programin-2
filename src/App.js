@@ -20,6 +20,7 @@ const x = () => {
 
 function App() {
     const [_users, setUsers] = useState(users);
+    
 
     const addUsers = function (newusers)  {
         console.log(newusers);
@@ -37,26 +38,9 @@ function App() {
     }
 
     const saveData = function (user, contact, message) {
-       
-        _users.map((key, value) => {
-            if (user.username === key.username) {
-                user.contacts.map((con) => {
-                    if (con.username === contact) {
-                        con.mem.concat([{ sent: true, message: message }]);
-                    }
-                })
-            }
+        var contacts = user.contacts.filter(us => us.username !== contact);
+        addContacts(user, contacts.concat({ username: contact, mem: message}));
 
-            if (contact.username === key.username) {
-                user.contacts.map((con) => {
-                    if (user.username === con.user) {
-                        con.mem.concat([{ sent: false, message: message }]);
-                    }
-                })
-            }
-        })
-
-        addContacts(user,)
     }
     return (
 
@@ -74,7 +58,7 @@ function App() {
                         <Register users={_users} addUsers={addUsers}/>
                     </Route>
                     <Route path='/chat'>
-                        <ChatPage users={users} addContacts={addContacts} saveData={saveData} />
+                        <ChatPage users={users} addContacts={addContacts}/>
                 </Route>
                 <Route path='/sidebar'>
                 <Sidebar />
