@@ -15,10 +15,26 @@
     position: relative;
     margin-top: 3%;
 }
-
+.imgcon{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 12px;
+    left: 16px;
+}
+.contactName{
+    color: black;
+    width: 40px;
+    height: 40px;
+    top: 0;
+    margin-left:48%;
+}
 .list-group-item {
     background-color: aqua;
+    width: 100%;
 }
+
 
 .card {
     position: relative;

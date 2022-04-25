@@ -11,7 +11,19 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
     
 
     const showContacts = contacts.map((friend) => {
-        return <li onClick={(e) => changeChat(friend.username)} class="list-group-item profile"> {friend.username}
+        const q = user.contacts.filter((x) => {
+            return x.username === friend.username;
+        })
+        const ken = q[0].mem[0];
+
+        console.log(ken);
+
+        return <li onClick={(e) => changeChat(friend.username)} class="list-group-item profile">
+        <div className='contactProfile'> 
+        <div className='contactName'>{friend.username}</div>
+        <img className='imgcon' src={friend.image} ></img>
+        </div> 
+           
         </li>
     })
 
