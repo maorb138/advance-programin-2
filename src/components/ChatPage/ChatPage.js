@@ -4,7 +4,6 @@ import { NavLink, useLocation } from 'react-router-dom';
 import './ChatPage.css';
 import Contacts from './Contacts';
 import Messages from './Messages';
-import Sidebar from './Sidebar';
 
 function ChatPage({ users, addContacts }) {
     const messages1 = [{ sent: false, message: 'hello1' }, { sent: true, message: 'hello2' }, { sent: true, message: 'hello3' }, { sent: false, message: 'hello4' }];

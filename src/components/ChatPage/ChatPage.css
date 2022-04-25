@@ -115,7 +115,7 @@
     border: none;
 }
 
-.btn-success {
+.btn-success.btn {
     position: absolute;
     margin: 0px;
     left: 0px;
