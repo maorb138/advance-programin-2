@@ -17,11 +17,14 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
         const ken = q[0].mem[0];
 
         console.log(ken);
-
+        var today = new Date();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        
         return <li onClick={(e) => changeChat(friend.username)} class="list-group-item profile">
         <div className='contactProfile'> 
         <div className='contactName'>{friend.username}</div>
-        <img className='imgcon' src={friend.image} ></img>
+        <img className='imgcon' src={friend.image} onClick={PopupImg}></img>
+        <time className='time'><span>{time}</span></time>
         </div> 
            
         </li>
@@ -32,7 +35,7 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
         <div class="card">
             <div class="card-header">
                 <h6>
-                    hello {user.username}
+                    welcome {user.username}
                 </h6>
                 <img id="myImg" className='myImg' onClick={PopupImg} src={user.image} />
                     <div id="myModal" class="modal">

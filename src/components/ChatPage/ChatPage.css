@@ -30,6 +30,14 @@
     top: 0;
     margin-left:48%;
 }
+.time{
+margin-left: 70%;
+width: 40px;
+height: 40px;
+top: 0;
+color: black;
+
+}
 .list-group-item {
     background-color: aqua;
     width: 100%;
