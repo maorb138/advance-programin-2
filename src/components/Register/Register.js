@@ -27,7 +27,7 @@ function Register(props) {
         users.map((x) => {
 
             if (username === x.username) {
-                console.log("An existing username in the system");
+                alert("An existing username in the system");
                 flag = false;
             }          
         });
@@ -88,6 +88,7 @@ function passwordValidation(pass, confPass) {
 
         //check if the length of the password is at least 6 charcters
     } else if (pass.length < 6) {
+        alert("invalid password length");
         console.log("invalid password length");
         return false;
         //check if the password contains at least one capital letter
