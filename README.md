@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Install or Unistall
+## Install or Uninstall
 In order to work with the latest version of 'react-router-dom'
 if exists any version of 'react-router-dom'
 Please uninstall By command - npm uninstall react-router-dom
