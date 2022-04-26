@@ -53,8 +53,10 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
                     <img class="modal-content" id="img01"/>
                     <div id="caption"></div>
                   </div>
+                <input className="searchBox" type='search' placeholder='search'></input>
                 </div>
                 <ul class="list-group list-group-flush">
+                <NavLink to='#' class="list-group-item">An item</NavLink>
                 {showContacts}
             </ul>
 
