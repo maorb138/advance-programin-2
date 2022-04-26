@@ -28,7 +28,7 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
             
         return <li onClick={(e) => changeChat(friend.username)} class="list-group-item profile">
         <div className='contactProfile'> 
-        <div className='contactName'>{friend.username}</div>
+        <div className='contactName'><h6>{friend.username}</h6></div>
                 <img className='imgcon' src={getImage(friend.username)} onClick={PopupImg}></img>
                 <time className='time'><span>{friend.last}</span></time>
         </div> 
