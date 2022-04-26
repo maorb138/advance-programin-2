@@ -156,10 +156,14 @@
 }
 
 
-.col .addButtons {
-    left: 0px;
-    height: 100px;
-    position: absolute;
+.col {
+    height: 90%;
+    position: relative;
+    border-radius:50%;
+    color:white;
+    background-color: lightgray;
+    margin:2%;
+    width:25%;
 }
 .imgcon{
     border-radius: 50%;
