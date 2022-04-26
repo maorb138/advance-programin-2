@@ -10,7 +10,7 @@ import DefaultImage from './../Image/profile-picture-boy-1.jpeg';
 function Register(props) {
     const history = useHistory();
 
-    const [file, setfile] = useState(null);
+    const [file, setfile] = useState(DefaultImage);
     
     const registerValid = () => {
         var username = document.getElementById("userName").value;
@@ -34,9 +34,7 @@ function Register(props) {
             flag = false;
             alert("type a username");
         }
-        if (file === null) {
-            setfile(DefaultImage);
-        }
+ 
         if (passwordValidation(password, confirmPass) && flag) {
             console.log("its ok");
             const newUser = { username: username, password: password, image: file, contacts: [{ username: 'hi', mem: [{ sent: false, message: '' }, { sent: false, message: '' }] }, { username: 'bye', mem: [{ sent: true, message: '' }, { sent: true, message: '' }] }] };
@@ -70,7 +68,7 @@ function Register(props) {
                 <input id="confirmPass" type="password" className="form-control inp" required></input>
             </div>
             <div>
-                <input type="file" id="image-input" onChange={(e) => setfile(URL.createObjectURL(e.target.files[0]))} onClick={displayimage} accept="image/jpeg, image/png, image/jpg" />
+                <input type="file" id="image-input" onInput={(e) => setfile(URL.createObjectURL(e.target.files[0]))} onClick={displayimage} accept="image/jpeg, image/png, image/jpg" />
             <div id="display-image"></div>
             </div>
             <div className="col-12">
