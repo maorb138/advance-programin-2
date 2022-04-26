@@ -25,12 +25,16 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
         })
         const ken = q[0].mem[0];
 
-            
+        console.log(friend);
+        
         return <li onClick={(e) => changeChat(friend.username)} class="list-group-item profile">
         <div className='contactProfile'> 
         <div className='contactName'><h6>{friend.username}</h6></div>
                 <img className='imgcon' src={getImage(friend.username)} onClick={PopupImg}></img>
-                <time className='time'><span>{friend.last}</span></time>
+               { console.log(friend.last)}
+                <span className='lastM'>{friend.last&&friend.last.message}</span>
+                <time className='time'><span>{friend.last&&friend.last.time}</span></time>
+               
         </div> 
            
         </li>

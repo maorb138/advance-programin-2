@@ -156,14 +156,10 @@
 }
 
 
-.col {
-    height: 90%;
-    position: relative;
-    border-radius:50%;
-    color:white;
-    background-color: lightgray;
-    margin:2%;
-    width:25%;
+.col .addButtons {
+    left: 0px;
+    height: 100px;
+    position: absolute;
 }
 .imgcon{
     border-radius: 50%;
@@ -181,10 +177,16 @@
     margin-left:20%;
 }
 .time{
-    margin-top: 10%;
+ margin-top: 10%;
 margin-left: 85%;
 width: 40px;
 height: 40px;
 top: 0;
 color: rgb(5, 14, 6);
+}
+.lastM{
+    margin-left: 20%;
+    margin-bottom: 1cm;
+
+
 }

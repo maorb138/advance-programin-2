@@ -85,21 +85,22 @@ function ChatPage({ users, addContacts }) {
         var newMess;
         var today = new Date();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-
+        //if press enter
         if (e.keyCode === 13 && message.value !== '') {
             newMess = messages.concat([{ sent: true, message: e.target.value , time: time}]);
             setMess(newMess);
             var g = user.contacts.find(x => x.username === contact.username);
             g.mem = g.mem.concat({ sent: true, message: e.target.value , time: time});
-            g.last = time;
+            g.last=({time:time,message:e.target.value});
             message.value = '';
         }
+        //button
         else if (e.target.tagName.toLowerCase() == 'button' && message.value !== '') {
             newMess = messages.concat([{ sent: true, message: message.value , time: time }]);
             setMess(newMess);
             const g = user.contacts.find(x => x.username === contact.username);
             g.mem = g.mem.concat([{ sent: true, message: message.value , time: time}]);
-            g.last = time;
+            g.last=({time:time,message:message.value});
             message.value = '';
         }
 
