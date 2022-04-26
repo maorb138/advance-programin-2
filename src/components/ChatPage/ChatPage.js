@@ -56,7 +56,7 @@ function ChatPage({ users, addContacts }) {
                 g.mem = g.mem.concat({ sent: true, message: <audio src={audioSrc} controls></audio>,time: time});
 
 
-                g.last = time;
+                g.last = ({time:time,message:"Recording..."});
                 var newMess = messages.concat([{
                     sent: true, message: <audio src={audioSrc} controls></audio>, time: time
                 }]);
