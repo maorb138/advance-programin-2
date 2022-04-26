@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Install or Unistall
+In order to work with the latest version of 'react-router-dom'
+if exists any version of 'react-router-dom'
+Please uninstall By command - npm uninstall react-router-dom
+And reinstall the by command - npm install react-router-dom@5.2.0
+
 ## Available Scripts
 
 In the project directory, you can run:
