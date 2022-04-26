@@ -9,8 +9,10 @@ import DefaultImage from './../Image/profile-picture-boy-1.jpeg';
 
 function Register(props) {
     const history = useHistory();
+    let k = Math.floor(Math.random() * 25);
+    var newImage='./Emoji/'+k+'.png';
 
-    const [file, setfile] = useState(DefaultImage);
+    const [file, setfile] = useState(newImage);
     
     const registerValid = () => {
         var username = document.getElementById("userName").value;
