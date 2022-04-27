@@ -44,7 +44,7 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
     return (
         <div class="card">
             <div class="card-header">
-                <h6>
+                <h6 className='nameStyle'>
                     welcome {user.username}
                 </h6>
                 <img id="myImg" className='myImg' onClick={PopupImg} src={user.image} />
@@ -53,8 +53,10 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
                     <img class="modal-content" id="img01"/>
                     <div id="caption"></div>
                   </div>
+              
                 </div>
                 <ul class="list-group list-group-flush">
+            
                 {showContacts}
             </ul>
 
