@@ -29,6 +29,7 @@
     background-color: floralwhite;
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
+    background-image: url("/src/components/Image/bg-chat-light.png");
 }
 
     .card .card-header {
@@ -71,6 +72,7 @@
     overflow-x: hidden;
     display: flex;
     flex-direction: column-reverse;
+    background-image: url("/src/components/Image/wall1.jpg");
 }
 
 
