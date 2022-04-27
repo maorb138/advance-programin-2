@@ -47,7 +47,7 @@ function Login(props) {
         <div className="login">
             <img className='login_user' src={login_user}></img>
             <br></br>
-            <h3> Login Your Account</h3><br></br>
+            <h3> Login Your Account</h3>
             {err !== "" ? <div className="error">{err}</div> : null}
                 <input type="username" id="user" className="form-control" placeholder="Username "></input>
             <br></br>

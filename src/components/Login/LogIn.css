@@ -1,6 +1,7 @@
 
 .form-control {
     width: 60%;
+    height:10%;
     background-color: whitesmoke;
     align-self: center;
     position: relative;
@@ -35,9 +36,11 @@
     border-radius: 30px;
     position:relative;
     margin-left:25%;
+    overflow:hidden;
 }
 h3 {
     text-align:center;
+    height:10%;
 }
 .main {
     justify-content: center;
