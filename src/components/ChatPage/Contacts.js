@@ -44,7 +44,7 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
    const modelpop = () => {
     var moddd = document.getElementById("mym1");
     var btn = document.getElementById("myb1");
-    var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName("close")[1];
     btn.onclick = function() {
       moddd.style.display = "block";
     }
@@ -60,7 +60,8 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
    const listContact=user.contacts.map((friend)=>{
     return <li><a href="#" >{friend.username}</a></li>
 });
-   function Search(){
+
+function Search(){
  var input, filter, ul, li, a, i;
  input = document.getElementById("mySearch");
  filter = input.value.toUpperCase();
@@ -115,6 +116,7 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
                 <div className="searchInputs">
                 <ul id="myMenu">
                 {listContact}
+                
                 </ul>
                   <input
                   id='mySearch'
