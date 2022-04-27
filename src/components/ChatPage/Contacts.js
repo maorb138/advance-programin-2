@@ -43,11 +43,8 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
     })
    const modelpop = () => {
     var moddd = document.getElementById("mym1");
-    var btn = document.getElementById("myb1");
     var span = document.getElementsByClassName("close")[1];
-    btn.onclick = function() {
-      moddd.style.display = "block";
-    }
+    moddd.style.display = "block";
     span.onclick = function() {
       moddd.style.display = "none";
     }
@@ -61,26 +58,24 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
     return <li><a href="#" >{friend.username}</a></li>
 });
 
-function Search(){
- var input, filter, ul, li, a, i;
- input = document.getElementById("mySearch");
- filter = input.value.toUpperCase();
- ul = document.getElementById("myMenu");
- li = ul.getElementsByTagName("li");
+    function Search(){
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("mySearch");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myMenu");
+        li = ul.getElementsByTagName("li");
 
 
- for (i = 0; i < li.length; i++) {
-   a = li[i].getElementsByTagName("a")[0];
-   if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-     li[i].style.display = "";
-   } else {
-     li[i].style.display = "none";
-   }
- }
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
 
-
-
-   }
+    }
 
   
      
@@ -109,21 +104,16 @@ function Search(){
             <button id="myb1" type="button" onClick={modelpop} className="btn btn-primary addFriend">Add a Friend</button>
             <div>
             <div id="mym1" className="mod1">
-            <span><h4 className='h4modal'>Search friend</h4></span>
+            <span><h4 className='h4modal'>Search new friend</h4></span>
               <div className="mod2">
-                <span class="close">&times;</span>
+                <span className="close">&times;</span>
                 <div className="search">
                 <div className="searchInputs">
+                <input id='mySearch' type="text" placeholder="Search..." onKeyUp={Search}>
+                </input>
                 <ul id="myMenu">
-                {listContact}
-                
+                    {listContact}
                 </ul>
-                  <input
-                  id='mySearch'
-                    type="text"
-                    placeholder="Search..."
-                    onKeyUp={Search}
-                  />
                </div>
                 </div>
               </div>
