@@ -47,7 +47,7 @@ label {
     max-height:100%;
     border: 2px solid gray;
     border-radius:25px;
-    position: absolute;
+    position: relative;
 }
 .md-4-row {
     width: 60%;
