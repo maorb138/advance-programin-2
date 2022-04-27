@@ -12,6 +12,8 @@ import videoupload from './../Image/upload1.png';
 import imageupload from './../Image/upload.png';
 import voice_black from './../Image/voice.png';
 import voice_red from './../Image/voice1.png';
+import fileDownload from './../Image/file-download.png';
+import filedownload from './../Image/file-download1.png';
 
 
 
@@ -148,31 +150,74 @@ function ChatPage({ users, addContacts }) {
 
     }
 
+    const sendTextFile = (textFile) => {
+        if (textFile !== undefined) {
+            var today = new Date();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var g = user.contacts.find(x => {
+                return x.username === contact.username
+            });
+            g.mem = g.mem.concat({ sent: true, message: <a href={URL.createObjectURL(textFile)} download><img width="100" src={filedownload}></img>{textFile.name}</a>, time: time });
+            g.last = ({ time: time, message: "Text File" });
+            var newMess = messages.concat([{
+                sent: true, message: <a href={URL.createObjectURL(textFile)} download><img width="100" src={filedownload}></img>{textFile.name}</a>,  time: time
+            }]);
+            setMess(newMess);
+        }
+    }
+
+
+    const sendVideo = (video) => {
+        if (video !== undefined) {
+            console.log(video.src)
+            var today = new Date();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var g = user.contacts.find(x => {
+                return x.username === contact.username
+            });
+            g.mem = g.mem.concat({ sent: true, message: <video width="250" src={URL.createObjectURL(video)} controls ></video >, time: time });
+            g.last = ({ time: time, message: "Video File" });
+            var newMess = messages.concat([{
+                sent: true, message: <video width="250" src={URL.createObjectURL(video)} controls></video>, time: time
+            }]);
+            setMess(newMess);
+        }
+    }
+
+    const sendImage = (image) => {
+        if (image !== undefined) {
+            var today = new Date();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var g = user.contacts.find(x => {
+                console.log(contact, x);
+                return x.username === contact.username
+            });
+            g.mem = g.mem.concat({
+                sent: true, message: <a href={URL.createObjectURL(image)} download><img width="100" src={URL.createObjectURL(image)}></img></a>, time: time });
+            g.last = ({ time: time, message: "Image File" });
+            var newMess = messages.concat([{
+                sent: true, message: <a href={URL.createObjectURL(image)} download><img width="100" src={URL.createObjectURL(image)}></img></a>, time: time
+            }]);
+            setMess(newMess);
+        }
+    }
 
     const sendFile = (e) => {
         const hiddenbtn = document.getElementById('hiddenbtn');
-        var classname = e.target.className;
-        console.log(classname);
-        
+        var classname = e.target.className;        
         if (classname.includes('image')) {
             hiddenbtn.accept = "image/*";
-            hiddenbtn.onchange = (e) => console.log('done image', e.target.files[0]);
-            const video = <video ></video>
-            console.log('image');
+            hiddenbtn.onchange = (e) => sendImage(e.target.files[0]);
 
         } else if (classname.includes('video')) {
             hiddenbtn.accept = "video/*";
-            hiddenbtn.onchange = (e) => console.log('done video', e.target.files[0]);
-            console.log('video');
+            hiddenbtn.onchange = (e) => sendVideo(e.target.files[0]);
 
         } else {
             hiddenbtn.accept = "text/*"
-            hiddenbtn.onchange = (e) => console.log('done file', e.target.files[0]);
-            console.log('file');
-
+            hiddenbtn.onchange = (e) => sendTextFile(e.target.files[0]);
         }
-        var result = hiddenbtn.click();
-        console.log(result);
+        hiddenbtn.click();
 
     }
 
@@ -188,12 +233,12 @@ function ChatPage({ users, addContacts }) {
             <div className="form-control1">
                 <div id='inputs' className="addButtons">
                     <input id='hiddenbtn' type='file' hidden ></input>
-                    <input type='image' onMouseDown={record} id='record_btn' className='col voice' src={voicerec} name='recorder'></input >
-
                     <input type='image' onClick={sendFile} className='col image' src={imageupload} name='imageupload'></input>
 
                     <input type='image' className='col video' onClick={sendFile} src={videoupload} name='videoupload'></input>
-                    <input type='image' onClick={sendFile} className='col file' src={file} name='fileupload'></input>
+                    <input type='image' onClick={sendFile} className='col file' src={file1} name='fileupload'></input>
+
+                    <input type='image' onMouseDown={record} id='record_btn' className='col voice' src={voice_black} name='recorder'></input >
 
                 </div>
                 <input autoComplete="off" onKeyDown={sendMessage} className="textinp" type="text" id="formGroupExampleInput" placeholder="Enter a messege"></input>

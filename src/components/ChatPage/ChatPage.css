@@ -162,21 +162,22 @@
     margin:2%;
     width:20%;
     background-color:white;
-    border-radius:50%;
+
     height:80%;
+    align-content:center;
+    display:flow;
 
 }
-    .col.file {
-        border-radius: 0px;
-        height: 80%;
-    }
-
-.voice{
-
-    height: 80%;
-
+.file {
+    border-radius: 0px;
+    height: 75%;
 }
-.video, .image {
+
+.voice {
+    border-radius: 50%;
+    height: 85%;
+}
+.video,.image {
     border-radius: 0px;
 }
     .imgcon {

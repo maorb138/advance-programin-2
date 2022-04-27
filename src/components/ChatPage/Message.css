@@ -23,14 +23,13 @@
 }
 
 /* Style images */
-.container img {
+.container > img {
     float: left;
     max-width: 60px;
     width: 100%;
     margin-right: 20px;
     border-radius: 50%;
 }
-
 
 /* Style the right image */
 .container img.right {
