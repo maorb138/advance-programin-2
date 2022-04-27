@@ -1,10 +1,12 @@
 import './ChatPage.css';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Avatar from './../Image/profile-picture-boy-2.jpeg';
 import './Sidebar.css';
 import './PopupImg.css';
+import './Modal.css';
 import { PopupImg } from './Sidebar.js';
+
+
 
 
 
@@ -18,7 +20,7 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
         })
         return image;
     }
-
+   
     const showContacts = contacts.map((friend) => {
         const q = user.contacts.filter((x) => {
             return x.username === friend.username;
@@ -39,6 +41,50 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
            
         </li>
     })
+   const modelpop = () => {
+    var moddd = document.getElementById("mym1");
+    var btn = document.getElementById("myb1");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+      moddd.style.display = "block";
+    }
+    span.onclick = function() {
+      moddd.style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target == moddd) {
+        moddd.style.display = "none";
+      }
+    }
+   }
+   const listContact=user.contacts.map((friend)=>{
+    return <li><a href="#" >{friend.username}</a></li>
+});
+   function Search(){
+ var input, filter, ul, li, a, i;
+ input = document.getElementById("mySearch");
+ filter = input.value.toUpperCase();
+ ul = document.getElementById("myMenu");
+ li = ul.getElementsByTagName("li");
+
+
+ for (i = 0; i < li.length; i++) {
+   a = li[i].getElementsByTagName("a")[0];
+   if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+     li[i].style.display = "";
+   } else {
+     li[i].style.display = "none";
+   }
+ }
+
+
+
+   }
+
+  
+     
+   
+    
 
 
     return (
@@ -56,11 +102,32 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
               
                 </div>
                 <ul class="list-group list-group-flush">
-            
                 {showContacts}
             </ul>
 
-            <button type="button" onClick={() => { addFriend('user3') }} className="btn btn-primary addFriend">Add a Friend</button>
+            <button id="myb1" type="button" onClick={modelpop} className="btn btn-primary addFriend">Add a Friend</button>
+            <div>
+            <div id="mym1" className="mod1">
+            <span><h4 className='h4modal'>Search friend</h4></span>
+              <div className="mod2">
+                <span class="close">&times;</span>
+                <div className="search">
+                <div className="searchInputs">
+                <ul id="myMenu">
+                {listContact}
+                </ul>
+                  <input
+                  id='mySearch'
+                    type="text"
+                    placeholder="Search..."
+                    onKeyUp={Search}
+                  />
+               </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
             </div>
         )
 }
