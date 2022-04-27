@@ -13,7 +13,7 @@ import imageupload from './../Image/upload.png';
 import voice_black from './../Image/voice.png';
 import voice_red from './../Image/voice1.png';
 import fileDownload from './../Image/file-download.png';
-import filedownload from './../Image/file-download1.png';
+import filedownload from './../Image/file-download.png';
 
 
 
