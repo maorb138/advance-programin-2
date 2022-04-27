@@ -1,26 +1,26 @@
 
 .form-control {
-    width: 50%;
-    background-color:gainsboro;
+    width: 60%;
+    background-color: gainsboro;
+    align-self: center;
+    position: relative;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 20px;
     text-align:center;
-    align-self:center;
 }
-.form-floating {
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 0 25% 0;
 
-}
 .login {
     padding: 20px;
-    background-color: white;
-    margin: 40px;
-    margin-left: 25%;
-    margin-right: 25%;
-    height: 400px;
+    background-color: whitesmoke;
+    margin-top: 5%;
+    margin-left: 35%;
+    margin-right: 35%;
+    justify-content:center;
+    height: 80%;
+    width:30%;
     border: 3px solid lightgray;
-    position: relative;
+    position: absolute;
     border-radius: 20px;
 }
 
@@ -29,11 +29,12 @@
     align-content:center;
     text-align:center;
 }
-.btn {
-    width: 40%;
-    margin: 0 30% 0;
-    max-height: 20%;
-    height: 40px;
+#verify {
+    width: 50%;
+    height: 50px;
+    border-radius: 30px;
+    position:relative;
+    margin-left:25%;
 }
 h3 {
     text-align:center;
@@ -45,4 +46,16 @@ h3 {
     height: 400px;
     transform-box:border-box;
     border: 1px solid lightgray;
+}
+
+.loginImg{
+    height:100%;
+    position:relative;
+}
+
+.login_user{
+    height:25%;
+    margin-left:35%;
+    position:relative;
+    width:30%;
 }

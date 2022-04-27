@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
+import loginImg from './../Image/login.png';
+import login_user from './../Image/login_user.png';
+
 
 
 import './LogIn.css';
 
 
 function Login(props) {
-    const history = useHistory();
+    const hist = useHistory();
     const [err, seterr] = useState("");
     const verifyUser = () => {
         var username = document.getElementById("user").value;
@@ -29,7 +32,7 @@ function Login(props) {
         props.users.map((x) => {
             if (username === x.username && password === x.password) {
                 console.log("yees you are login");
-                history.push("/chat",x);
+                hist.push('/chat', x);
                 return;
             }
         
@@ -42,17 +45,15 @@ function Login(props) {
 
     return (
         <div className="login">
-            <h3> Login to Your Account</h3><br></br>
+            <img className='login_user' src={login_user}></img>
+            <br></br>
+            <h3> Login Your Account</h3><br></br>
             {err !== "" ? <div className="error">{err}</div> : null}
-            <div className="form-floating mb-1">
                 <input type="username" id="user" className="form-control" placeholder="Username "></input>
-                <label>Username</label>
-            </div><br></br>
-            <div className="form-floating">
+            <br></br>
                 <input type="password" className="form-control" id="floatingPassword" placeholder="Password"></input>
-                <label >Password</label>
-            </div><br></br>
-                <button onClick={verifyUser} id="verify" type="submit" className="btn btn-primary mb-1">Login</button> </div>
+            <br></br>
+            <button onClick={verifyUser} id="verify" type="submit" className="btn btn-primary mb-1"><img className="loginImg" src={loginImg}></img>&nbsp;Login</button> </div>
             );
 }
 
