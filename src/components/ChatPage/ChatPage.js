@@ -4,6 +4,15 @@ import { NavLink, useLocation } from 'react-router-dom';
 import './ChatPage.css';
 import Contacts from './Contacts';
 import Messages from './Messages';
+import file from './../Image/file.png';
+import iconImage from './../Image/photo.png';
+import rec from './../Image/rec.png';
+import file1 from './../Image/submit.png';
+import videoupload from './../Image/upload1.png';
+import imageupload from './../Image/upload.png';
+import voice_black from './../Image/voice.png';
+import voice_red from './../Image/voice1.png';
+
 
 
 function ChatPage({ users, addContacts }) {
@@ -12,7 +21,9 @@ function ChatPage({ users, addContacts }) {
     const [messages, setMess] = useState(messages1);
     const [contact, setContact] = useState(null);
 
-    function record() {
+    function record(e) {
+        console.log(e.target);
+        e.target.src = voice_red;
         navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
             let recorder = new MediaRecorder(stream);
             let dataArray=[];
@@ -24,6 +35,7 @@ function ChatPage({ users, addContacts }) {
             }
             stop.addEventListener('mouseup', function (ev) {
                 recorder.stop();
+                e.target.src = voice_black;
                 //console.log(recorder.state);
             })
 
@@ -136,6 +148,35 @@ function ChatPage({ users, addContacts }) {
 
     }
 
+
+    const sendFile = (e) => {
+        const hiddenbtn = document.getElementById('hiddenbtn');
+        var classname = e.target.className;
+        console.log(classname);
+        
+        if (classname.includes('image')) {
+            hiddenbtn.accept = "image/*";
+            hiddenbtn.onchange = (e) => console.log('done image', e.target.files[0]);
+            const video = <video ></video>
+            console.log('image');
+
+        } else if (classname.includes('video')) {
+            hiddenbtn.accept = "video/*";
+            hiddenbtn.onchange = (e) => console.log('done video', e.target.files[0]);
+            console.log('video');
+
+        } else {
+            hiddenbtn.accept = "text/*"
+            hiddenbtn.onchange = (e) => console.log('done file', e.target.files[0]);
+            console.log('file');
+
+        }
+        var result = hiddenbtn.click();
+        console.log(result);
+
+    }
+
+
     return (
         <div className="chat1">
             {user && < Contacts user={user} contacts={user.contacts} users={users} addFriend={addFriend} changeChat={changeChat} /> }
@@ -146,9 +187,14 @@ function ChatPage({ users, addContacts }) {
 
             <div className="form-control1">
                 <div id='inputs' className="addButtons">
-                    <button className='col'>image <i className="bi bi-image"></i></button>
-                    <button className='col'>video <i className="bi bi-film"></i></button>
-                    <button onMouseDown={record} id='record_btn' className='col'>record<i className="bi bi-mic-fill"></i></button>
+                    <input id='hiddenbtn' type='file' hidden ></input>
+                    <input type='image' onMouseDown={record} id='record_btn' className='col voice' src={voicerec} name='recorder'></input >
+
+                    <input type='image' onClick={sendFile} className='col image' src={imageupload} name='imageupload'></input>
+
+                    <input type='image' className='col video' onClick={sendFile} src={videoupload} name='videoupload'></input>
+                    <input type='image' onClick={sendFile} className='col file' src={file} name='fileupload'></input>
+
                 </div>
                 <input autoComplete="off" onKeyDown={sendMessage} className="textinp" type="text" id="formGroupExampleInput" placeholder="Enter a messege"></input>
                 <button onClick={sendMessage} type="button" class="btn btn-success">Send</button>

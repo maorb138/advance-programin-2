@@ -127,12 +127,12 @@
 
 .addButtons {
     right: 0px;
-    background-color: blue;
     height: 100%;
     width: 30%;
     position: absolute;
     border-bottom-right-radius: inherit;
-    justify-content: left;
+    justify-content: center;
+    //background-color: floralwhite;
 }
 
 .c1, .c2, .hii {
@@ -157,19 +157,36 @@
 }
 
 
-.col .addButtons {
-    left: 0px;
-    height: 100px;
-    position: absolute;
+.col {
+    position: relative;
+    margin:2%;
+    width:20%;
+    background-color:white;
+    border-radius:50%;
+    height:80%;
+
 }
-.imgcon{
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    top: 12px;
-    left: 16px;
+    .col.file {
+        border-radius: 0px;
+        height: 80%;
+    }
+
+.voice{
+
+    height: 80%;
+
 }
+.video, .image {
+    border-radius: 0px;
+}
+    .imgcon {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 12px;
+        left: 16px;
+    }
 .contactName{
     color: black;
     width: 40px;
