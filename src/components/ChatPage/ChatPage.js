@@ -157,10 +157,16 @@ function ChatPage({ users, addContacts }) {
             var g = user.contacts.find(x => {
                 return x.username === contact.username
             });
-            g.mem = g.mem.concat({ sent: true, message: <a href={URL.createObjectURL(textFile)} download><img width="100" src={filedownload}></img>{textFile.name}</a>, time: time });
+            g.mem = g.mem.concat({
+                sent: true, message: <a href={URL.createObjectURL(textFile)} download>
+                    <img width="100" src={filedownload}>
+                    </img>{textFile.name}</a>, time: time
+            });
             g.last = ({ time: time, message: "Text File" });
             var newMess = messages.concat([{
-                sent: true, message: <a href={URL.createObjectURL(textFile)} download><img width="100" src={filedownload}></img>{textFile.name}</a>,  time: time
+                sent: true, message: <a href={URL.createObjectURL(textFile)} download>
+                    <img width="100" src={filedownload}>
+                    </img>{textFile.name}</a>, time: time
             }]);
             setMess(newMess);
         }
@@ -175,10 +181,15 @@ function ChatPage({ users, addContacts }) {
             var g = user.contacts.find(x => {
                 return x.username === contact.username
             });
-            g.mem = g.mem.concat({ sent: true, message: <video width="250" src={URL.createObjectURL(video)} controls ></video >, time: time });
+            g.mem = g.mem.concat({
+                sent: true, message: <video width="250" src={URL.createObjectURL(video)} controls >
+                    
+                </video >, time: time
+            });
             g.last = ({ time: time, message: "Video File" });
             var newMess = messages.concat([{
-                sent: true, message: <video width="250" src={URL.createObjectURL(video)} controls></video>, time: time
+                sent: true, message: <video width="250" src={URL.createObjectURL(video)} controls>
+                </video>, time: time
             }]);
             setMess(newMess);
         }
@@ -193,10 +204,17 @@ function ChatPage({ users, addContacts }) {
                 return x.username === contact.username
             });
             g.mem = g.mem.concat({
-                sent: true, message: <a href={URL.createObjectURL(image)} download><img width="100" src={URL.createObjectURL(image)}></img></a>, time: time });
+                sent: true, message: <a href={URL.createObjectURL(image)} download>
+                    <img width="100" src={URL.createObjectURL(image)}>
+                    </img>{image.name}
+                </a>, time: time
+            });
             g.last = ({ time: time, message: "Image File" });
             var newMess = messages.concat([{
-                sent: true, message: <a href={URL.createObjectURL(image)} download><img width="100" src={URL.createObjectURL(image)}></img></a>, time: time
+                sent: true, message: <a href={URL.createObjectURL(image)} download>
+                    <img width="100" src={URL.createObjectURL(image)}>
+                    </img>{image.name}
+                </a>, time: time
             }]);
             setMess(newMess);
         }
