@@ -55,9 +55,10 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
     }
    }
    const listContact=user.contacts.map((friend)=>{
-    return <li><a href="#" >{friend.username }</a></li>
+    return <li><a href="#"><img className="pImage" src={getImage(friend.username)}/> {friend.username }</a></li>
 });
 const imageList =user.contacts.map((friend)=>{
+    <li><a href="#" ></a></li>
     
 });
 
@@ -116,7 +117,7 @@ const imageList =user.contacts.map((friend)=>{
                 </input>
                 <ul id="myMenu">
                     {listContact}
-                    
+                    {imageList}
                 </ul>
                </div>
                 </div>

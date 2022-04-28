@@ -286,4 +286,11 @@ color: rgb(5, 14, 6);
       width: 100%;
     }
   }
+  .pImage{
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+
+
+  }
 
