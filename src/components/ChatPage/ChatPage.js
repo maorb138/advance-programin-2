@@ -215,14 +215,14 @@ function ChatPage({ users, addContacts }) {
             g.mem = g.mem.concat({
                 sent: true, message: <a href={URL.createObjectURL(image)} download>
                     <img width="100" src={URL.createObjectURL(image)}>
-                    </img>{image.name}
+                    </img>
                 </a>, time: time
             });
             g.last = ({ time: time, message: <img className="conSendStyle" width="25" height="25" src={imageSent} /> });
             var newMess = messages.concat([{
                 sent: true, message: <a href={URL.createObjectURL(image)} download>
                     <img width="100" src={URL.createObjectURL(image)}>
-                    </img>{image.name}
+                    </img>
                 </a>, time: time
             }]);
             setMess(newMess);
