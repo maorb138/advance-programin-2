@@ -5,6 +5,7 @@ import avatar3 from'./../Image/profile-picture-girl-2.jpeg';
 import avatar4 from './../Image/profile-picture-girl-1.jpeg';
 import avatar5 from './../Image/profile-picture-girl-3.jpeg';
 import avatar6 from './../Image/profile-picture-girl-4.jpeg';
+import Message from '../ChatPage/Message/Message';
 const users = [{ username: 'avi', nickname: 'avi1', password: '1234', image: DefaultImage, contacts: [{ username: 'avi2', mem:[],last:null }, { username: 'daniel', mem:[],last:null }, {username: 'aviv', mem:[],last:null }]},
     { username: 'avi1', nickname: 'avi1', password: '0000', image: avtar1, contacts: [{ username: 'miri', mem:[],last:null}, { username: 'maor', mem:[],last:null}, { username: 'aviv', mem:[],last:null }]},
     { username: 'avi2', nickname: 'avi2', password: '1212', image: avtar2, contacts: [ { username: 'avi1', mem:[],last:null }, { username: 'aviv', mem:[],last:null}]},

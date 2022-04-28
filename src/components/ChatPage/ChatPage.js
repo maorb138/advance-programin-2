@@ -13,11 +13,18 @@ import filedownload from './../Image/file-download.png';
 import imageSent from './../Image/imageiconsend.png';
 import  videoSent from './../Image/videosendicon.png';
 import textFileSend from './../Image/ib.png';
-
+import fileTest from './../Image/test.txt';
+import macarena from './../Image/macarena.mp4';
+import hasson from './../Image/welcome.mp3';
 
 
 function ChatPage({ users, addContacts }) {
-    const messages1 = [];
+    // { sent: true, message: 'hey' },{ sent: true, message: {imageSent} },{ sent: true, message: {fileTest} },{ sent: true, message: {macarena} }
+    // { sent: false, message: 'hello1' }, { sent: true, message: 'hello2' }, { sent: true, message: 'hello3' }, { sent: false, message: 'hello4' }
+    const messages1 = [{ sent: false, message:<img src={imageSent} width='100' /> }, { sent: true, message:<video width="150" src={(macarena)} controls /> }, { sent: false, message: <a href={fileTest} download>
+    <img width="100" src={filedownload}>
+    </img>{fileTest.name}</a> }, { sent: true, message: <audio  src={hasson} width= "100" controls/> }];
+    const messages2=[]
     const [user, setUser] = useState(useLocation().state);
     const [messages, setMess] = useState(messages1);
     const [contact, setContact] = useState(null);
@@ -48,7 +55,7 @@ function ChatPage({ users, addContacts }) {
                 // After fill up the chunk
                 // array make it empty
                 let audioData = new Blob(dataArray,
-                    { 'type': 'audio/mp3;' });
+                    { 'type': 'audio/mp3/mp4;' });
 
                 // After fill up the chunk
                 // array make it empty
@@ -92,6 +99,8 @@ function ChatPage({ users, addContacts }) {
 
         })
     }
+     
+
 
     const sendMessage = (e) => {
         var message = document.getElementsByClassName("textinp")[0];
