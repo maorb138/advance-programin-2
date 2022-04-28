@@ -2,17 +2,13 @@
 import { useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import './ChatPage.css';
-import Contacts from './Contacts';
-import Messages from './Messages';
-import file from './../Image/file.png';
-import iconImage from './../Image/photo.png';
-import rec from './../Image/rec.png';
+import Contacts from './Contacts/Contacts';
+import Messages from './Message/Messages';
 import file1 from './../Image/submit.png';
 import videoupload from './../Image/upload1.png';
 import imageupload from './../Image/upload.png';
 import voice_black from './../Image/voice.png';
 import voice_red from './../Image/voice1.png';
-import fileDownload from './../Image/file-download.png';
 import filedownload from './../Image/file-download.png';
 
 

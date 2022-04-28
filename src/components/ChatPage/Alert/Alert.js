@@ -1,5 +1,5 @@
-import NotConnect from './../Image/uncon.png';
-import './Sidebar.css';
+import NotConnect from './../../Image/uncon.png';
+import './../Sidebar/Sidebar.css';
 function Alert(){
 
 

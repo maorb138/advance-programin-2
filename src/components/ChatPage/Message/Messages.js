@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import Message from './Message';
-import Avatar from './../Image/profile-picture-boy-1.jpeg';
+
 
 
 

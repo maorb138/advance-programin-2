@@ -7,16 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import users from './components/DataBase/db';
 import ChatPage from './components/ChatPage/ChatPage';
 import Home from './components/HomePage/Home';
-import Sidebar from './components/ChatPage/Sidebar';
-import Soon from './components/ChatPage/Soon';
 
-
-/*
-const x = () => {
-    var elm = document.getElementsByClassName("nav-link");
-    console.log(elm[1].href="www.google.com");
-    elm[1].textContent = elm[1].textContent == "Hello" ? "Register" : "Hello";
-}*/
 
 function App() {
     const [_users, setUsers] = useState(users);
@@ -60,12 +51,7 @@ function App() {
                     <Route path='/chat'>
                         <ChatPage users={users} addContacts={addContacts}/>
                 </Route>
-                <Route path='/sidebar'>
-                <Sidebar />
-        </Route>
-        <Route path='/soon'>
-        <Soon />
-</Route>
+ 
         
                 
                     

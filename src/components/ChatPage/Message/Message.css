@@ -6,6 +6,8 @@
     padding: 10px;
     margin: 40px 0;
     text-align: right;
+    
+    
 }
 
 /* Darker chat container */
@@ -51,9 +53,15 @@
 }
 
 .mess{
-    color:red;
+    color:rgb(0, 0, 0);
     float:left;
     position:relative;
     right:0px;
     text-align: right;
+
+    
+}
+
+.dataStyle{
+    font-family: "Lucida Console", "Courier New", monospace;
 }

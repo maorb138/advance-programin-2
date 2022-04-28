@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
-import Users from './../DataBase/db'
+
 
 
 function SearchBar({ placeholder, data }) {

@@ -1,9 +1,9 @@
-import './Sidebar.css'
-import './PopupImg.css'
-import Users from '../DataBase/db';
-import Avatar from './../Image/profile-picture-boy-2.jpeg';
-import SearchBar from './SearchBar';
-import Alert from './Alert';
+import './Sidebar.css';
+import './../style/PopupImg.css';
+import Users from '../../DataBase/db';
+import Avatar from './../../Image/profile-picture-boy-2.jpeg';
+import SearchBar from './../Searchbar/SearchBar';
+import Alert from './../Alert/Alert';
 
 function Sidebar(){
   

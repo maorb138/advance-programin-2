@@ -1,10 +1,10 @@
-import './ChatPage.css';
+import './../ChatPage.css';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import './Sidebar.css';
-import './PopupImg.css';
-import './Modal.css';
-import { PopupImg } from './Sidebar.js';
+import './../Sidebar/Sidebar.css';
+import './../style/PopupImg.css';
+import './../style/Modal.css';
+import { PopupImg } from './../Sidebar/Sidebar.js';
 
 
 
