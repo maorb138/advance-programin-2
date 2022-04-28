@@ -89,9 +89,9 @@ const imageList =user.contacts.map((friend)=>{
     return (
         <div className="card">
             <div className="card-header">
-                <h6 className='nameStyle'>
+                <h5 className='nameStyle'>
                     welcome {user.username}
-                </h6>
+                </h5>
                 <img id="myImg" className='myImg' onClick={PopupImg} src={user.image} />
                     <div id="myModal" className="modal">
                     <span className="close">&times;</span>

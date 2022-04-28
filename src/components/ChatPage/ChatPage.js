@@ -17,7 +17,7 @@ import textFileSend from './../Image/ib.png';
 
 
 function ChatPage({ users, addContacts }) {
-    const messages1 = [{ sent: false, message: 'hello1' }, { sent: true, message: 'hello2' }, { sent: true, message: 'hello3' }, { sent: false, message: 'hello4' }];
+    const messages1 = [];
     const [user, setUser] = useState(useLocation().state);
     const [messages, setMess] = useState(messages1);
     const [contact, setContact] = useState(null);
@@ -250,6 +250,7 @@ function ChatPage({ users, addContacts }) {
             <div className="form-control1">
                 <div id='inputs' className="addButtons">
                     <input id='hiddenbtn' type='file' hidden ></input>
+            
                     <input type='image' onClick={sendFile} className='col image' src={imageupload} name='imageupload'></input>
 
                     <input type='image' className='col video' onClick={sendFile} src={videoupload} name='videoupload'></input>

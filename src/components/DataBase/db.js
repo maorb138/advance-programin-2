@@ -12,7 +12,8 @@ const users = [{ username: 'avi', nickname: 'avi1', password: '1234', image: Def
     { username: 'maor', nickname: 'biton', password: 'Ma1234567', image: DefaultImage, contacts: [{ username: 'yarden', mem:[],last:null }, { username: 'miri', mem:[],last:null }, { username: 'aviv', mem:[],last:null }]},
     { username: 'yarden', nickname: 'yarden123', password: 'Yarden123', image: avatar4, contacts: [{ username: 'daniel', mem:[],last:null }, { username: 'yarden', mem:[],last:null}]},
     { username: 'daniel', nickname: 'daniel123', password: 'Daniel123', image: avatar5, contacts: [{ username: 'avi2', mem:[],last:null }, { username: 'avi1', mem:[],last:null}]},
-    { username: 'miri', nickname: 'miri12', password: 'Miri12', image: avatar6, contacts: [{ username: 'daniel', mem:[],last:null }, { username: 'yarden', mem:[],last:null}]}
+    { username: 'miri', nickname: 'miri12', password: 'Miri12', image: avatar6, contacts: [{ username: 'daniel', mem:[],last:null }, { username: 'yarden', mem:[],last:null}]},
+    { username: 'elad', nickname: 'elad123', password: 'Elad123456', image: avtar1, contacts: [{ username: 'avi2', mem:[],last:null }, { username: 'daniel', mem:[],last:null }, {username: 'aviv', mem:[],last:null }]}
 
 
 
