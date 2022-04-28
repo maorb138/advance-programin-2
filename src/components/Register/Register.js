@@ -3,7 +3,7 @@ import './Register.css';
 import React from 'react';
 import './../DataBase/db.js';
 import { useHistory } from "react-router-dom";
-import DefaultImage from './../Image/profile-picture-boy-1.jpeg';
+
 
 
 

@@ -55,7 +55,10 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
     }
    }
    const listContact=user.contacts.map((friend)=>{
-    return <li><a href="#" >{friend.username}</a></li>
+    return <li><a href="#" >{friend.username }</a></li>
+});
+const imageList =user.contacts.map((friend)=>{
+    
 });
 
     function Search(){
@@ -113,6 +116,7 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
                 </input>
                 <ul id="myMenu">
                     {listContact}
+                    
                 </ul>
                </div>
                 </div>

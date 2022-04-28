@@ -10,6 +10,9 @@ import imageupload from './../Image/upload.png';
 import voice_black from './../Image/voice.png';
 import voice_red from './../Image/voice1.png';
 import filedownload from './../Image/file-download.png';
+import imageSent from './../Image/imageiconsend.png';
+import  videoSent from './../Image/videosendicon.png';
+import textFileSend from './../Image/ib.png';
 
 
 
@@ -158,7 +161,7 @@ function ChatPage({ users, addContacts }) {
                     <img width="100" src={filedownload}>
                     </img>{textFile.name}</a>, time: time
             });
-            g.last = ({ time: time, message: "Text File" });
+            g.last = ({ time: time, message: <img className="conSendStyle" width="25" height="25" src={textFileSend} /> });
             var newMess = messages.concat([{
                 sent: true, message: <a href={URL.createObjectURL(textFile)} download>
                     <img width="100" src={filedownload}>
@@ -182,7 +185,7 @@ function ChatPage({ users, addContacts }) {
                     
                 </video >, time: time
             });
-            g.last = ({ time: time, message: "Video File" });
+            g.last = ({ time: time, message: <img className="conSendStyle" width="25" height="25" src={videoSent} /> });
             var newMess = messages.concat([{
                 sent: true, message: <video width="250" src={URL.createObjectURL(video)} controls>
                 </video>, time: time
@@ -205,7 +208,7 @@ function ChatPage({ users, addContacts }) {
                     </img>{image.name}
                 </a>, time: time
             });
-            g.last = ({ time: time, message: "Image File" });
+            g.last = ({ time: time, message: <img className="conSendStyle" width="25" height="25" src={imageSent} /> });
             var newMess = messages.concat([{
                 sent: true, message: <a href={URL.createObjectURL(image)} download>
                     <img width="100" src={URL.createObjectURL(image)}>

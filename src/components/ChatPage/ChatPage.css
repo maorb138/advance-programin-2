@@ -210,6 +210,8 @@ color: rgb(5, 14, 6);
 .lastM{
     margin-left: 20%;
     margin-bottom: 1cm;
+     
+    
 
 }
 .nameStyle{
@@ -270,6 +272,18 @@ color: rgb(5, 14, 6);
     1px 22px 10px rgba(16,16,16,0.2),
     1px 25px 35px rgba(16,16,16,0.2),
     1px 30px 60px rgba(16,16,16,0.4);
-
-
 }
+
+  
+  @keyframes slide-right {
+    from {
+      margin-left: -100%;
+      width: 300%; 
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+
