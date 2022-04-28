@@ -21,9 +21,9 @@ import hasson from './../Image/welcome.mp3';
 function ChatPage({ users, addContacts }) {
     // { sent: true, message: 'hey' },{ sent: true, message: {imageSent} },{ sent: true, message: {fileTest} },{ sent: true, message: {macarena} }
     // { sent: false, message: 'hello1' }, { sent: true, message: 'hello2' }, { sent: true, message: 'hello3' }, { sent: false, message: 'hello4' }
-    const messages1 = [{ sent: false, message:<img src={imageSent} width='100' /> }, { sent: true, message:<video width="150" src={(macarena)} controls /> }, { sent: false, message: <a href={fileTest} download>
-    <img width="100" src={filedownload}>
-    </img>{fileTest.name}</a> }, { sent: true, message: <audio  src={hasson} width= "100" controls/> }];
+    const messages1 = [{ sent: false, message:<img src={imageSent} width='50' /> }, { sent: true, message:<video width="150" src={(macarena)} controls /> }, { sent: false, message: <a href={fileTest} download>
+    <img width="50" src={filedownload}>
+    </img>{fileTest.name}</a> }, { sent: true, message: <audio  src={hasson} width= "50" controls/> }];
     const messages2=[]
     const [user, setUser] = useState(useLocation().state);
     const [messages, setMess] = useState(messages1);
