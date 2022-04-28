@@ -5,6 +5,7 @@ import './../Sidebar/Sidebar.css';
 import './../style/PopupImg.css';
 import './../style/Modal.css';
 import { PopupImg } from './../Sidebar/Sidebar.js';
+import allusers from '../../DataBase/db';
 
 
 
@@ -57,11 +58,6 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
    const listContact=user.contacts.map((friend)=>{
     return <li><a href="#"><img className="pImage" src={getImage(friend.username)}/> {friend.username }</a></li>
 });
-const imageList =user.contacts.map((friend)=>{
-    <li><a href="#" ></a></li>
-    
-});
-
     function Search(){
         var input, filter, ul, li, a, i;
         input = document.getElementById("mySearch");
@@ -117,7 +113,6 @@ const imageList =user.contacts.map((friend)=>{
                 </input>
                 <ul id="myMenu">
                     {listContact}
-                    {imageList}
                 </ul>
                </div>
                 </div>
@@ -126,7 +121,7 @@ const imageList =user.contacts.map((friend)=>{
             </div>
           </div>
             </div>
-        )
+        );
 }
 
 

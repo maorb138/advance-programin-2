@@ -129,6 +129,7 @@ function ChatPage({ users, addContacts }) {
     }
 
     const addFriend = function (username) {
+        console.log("the user name isssss"+username);
 
         var flag = true, count = 0;
 

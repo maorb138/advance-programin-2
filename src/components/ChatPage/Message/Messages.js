@@ -16,7 +16,7 @@ function Messages({ messages ,img}) {
         <div  className='mess'>
             {t}
             </div>
-        )
+        );
 }
 
 export default Messages;
