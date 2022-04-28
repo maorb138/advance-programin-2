@@ -6,6 +6,8 @@
     padding: 10px;
     margin: 40px 0;
     text-align: right;
+    border-radius: 25px;
+    
     
     
 }
@@ -31,6 +33,7 @@
     width: 100%;
     margin-right: 20px;
     border-radius: 50%;
+    
 }
 
 /* Style the right image */
@@ -38,6 +41,8 @@
     float: right;
     margin-left: 20px;
     margin-right: 0;
+    
+    
 }
 
 /* Style time text */

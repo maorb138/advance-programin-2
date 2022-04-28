@@ -256,7 +256,7 @@ function ChatPage({ users, addContacts }) {
 
                 </div>
                 <input autoComplete="off" onKeyDown={sendMessage} className="textinp" type="text" id="formGroupExampleInput" placeholder="Enter a messege"></input>
-                <button onClick={sendMessage} type="button" class="btn btn-success">Send</button>
+                <button onClick={sendMessage} type="button" className="btn btn-success">Send</button>
             </div>
          </div>
         );

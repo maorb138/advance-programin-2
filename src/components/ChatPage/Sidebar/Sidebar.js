@@ -15,9 +15,9 @@ return(
   <div>
   <img id="myImg" className='myImg' onClick={PopupImg} src={Avatar} />
   <SearchBar id="search" placeholder="Search.." data={Users} />
-  <div id="myModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="img01"/>
+  <div id="myModal" className="modal">
+  <span className="close">&times;</span>
+  <img className="modal-content" id="img01"/>
   <div id="caption"></div>
 </div>
 <Alert/ >

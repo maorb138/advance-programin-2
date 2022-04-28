@@ -29,7 +29,7 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
 
         console.log(friend);
         
-        return <li onClick={(e) => changeChat(friend.username)} class="list-group-item profile">
+        return <li onClick={(e) => changeChat(friend.username)} className="list-group-item profile">
         <div className='contactProfile'> 
         <div className='contactName'><h6>{friend.username}</h6></div>
                 <img className='imgcon' src={getImage(friend.username)} onClick={PopupImg}></img>
@@ -84,20 +84,20 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
 
 
     return (
-        <div class="card">
-            <div class="card-header">
+        <div className="card">
+            <div className="card-header">
                 <h6 className='nameStyle'>
                     welcome {user.username}
                 </h6>
                 <img id="myImg" className='myImg' onClick={PopupImg} src={user.image} />
-                    <div id="myModal" class="modal">
-                    <span class="close">&times;</span>
-                    <img class="modal-content" id="img01"/>
+                    <div id="myModal" className="modal">
+                    <span className="close">&times;</span>
+                    <img className="modal-content" id="img01"/>
                     <div id="caption"></div>
                   </div>
               
                 </div>
-                <ul class="list-group list-group-flush">
+                <ul className="list-group list-group-flush">
                 {showContacts}
             </ul>
 

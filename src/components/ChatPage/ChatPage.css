@@ -149,9 +149,11 @@
 .btn-primary.addFriend {
     width: 60%;
     height: 10%;
-    margin-left: 20%;
+    margin-left: -6%;
     position: relative;
     bottom: 0px;
+    margin-top: 12%;
+    border-radius: 25px;
 }
 
 .bi.bi-person-plus-fill {

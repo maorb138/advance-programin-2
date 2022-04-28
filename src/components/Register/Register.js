@@ -39,7 +39,7 @@ function Register(props) {
  
         if (passwordValidation(password, confirmPass) && flag) {
             console.log("its ok");
-            const newUser = { username: username, password: password, image: file, contacts: [{ username: 'hi', mem: [{ sent: false, message: '' }, { sent: false, message: '' }] }, { username: 'bye', mem: [{ sent: true, message: '' }, { sent: true, message: '' }] }] };
+            const newUser = { username: username, password: password, image: file, contacts: [{ username: '', mem: [{ sent: false, message: '' }, { sent: false, message: '' }] }, { username: '', mem: [{ sent: true, message: '' }, { sent: true, message: '' }] }] };
             props.addUsers(props.users.concat([newUser]));
             alert('welcome '+ username);
             history.push('/chat', newUser);
