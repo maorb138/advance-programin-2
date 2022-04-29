@@ -155,8 +155,7 @@ function ChatPage({ users, addContacts }) {
 
         if (!flag) return;
         addContacts(user, contacts.concat([{ username: username, mem: [] ,last:null}]));
-        setcontacts(contacts.concat([{ username: username, mem: [], last: null }]))
-
+        setcontacts(contacts.concat([{ username: username, mem: [], last: null }]));
     }
 
     const sendTextFile = (textFile) => {

@@ -14,8 +14,8 @@ function App() {
     
 
     const addUsers = function (newusers)  {
-        console.log(newusers);
-        console.log(_users);
+        // console.log(newusers);
+        // console.log(_users);
         setUsers(newusers);
     }
 

@@ -13,7 +13,6 @@ import allusers from '../../DataBase/db';
 
 
 function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) {
-    
     function getImage(user){
         var image;
         users.map((x)=>{
@@ -55,8 +54,8 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
       }
     }
    }
-   const listContact=user.contacts.map((friend)=>{
-    return <li><a href="#"><img className="pImage" src={getImage(friend.username)}/> {friend.username }</a></li>
+   const listContact=allusers.map((friend)=>{
+    return <li><a href="#"onClick={(e) => addFriend(friend.username)}><img className="pImage" src={getImage(friend.username)}/> {friend.username }</a></li>
 });
     function Search(){
         var input, filter, ul, li, a, i;
