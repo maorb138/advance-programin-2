@@ -138,8 +138,8 @@ function ChatPage({ users, addContacts }) {
             flag = false;
             return;
         }
-        user.contacts.forEach((i) => {
-            if (username == i.username) {
+        contacts.map((i) => {
+            if (username === i.username) {
                 console.log("already friends");
                 flag = false;
             }
