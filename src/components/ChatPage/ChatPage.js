@@ -19,12 +19,10 @@ import hasson from './../Image/welcome.mp3';
 
 
 function ChatPage({ users, addContacts }) {
-    const user1 = JSON.parse(localStorage.getItem('user'));
-    console.log(user1, '++++++++++++++++++++++');
-    const [user, setUser] = useState(user1);
+    const _user = JSON.parse(localStorage.getItem('user'));
+    const [user, setUser] = useState(_user);
     const [contact, setContact] = useState(null);
     const [contacts, setcontacts] = useState(user && user.contacts);
-    console.log(contacts);
     const [messages, setMess] = useState(contacts && user.contacts[0].mem);
     
     useEffect(() => {
@@ -32,7 +30,6 @@ function ChatPage({ users, addContacts }) {
     },[])
 
     function record(e) {
-        console.log(e.target);
         e.target.src = voice_red;
         navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
             let recorder = new MediaRecorder(stream);
@@ -41,36 +38,24 @@ function ChatPage({ users, addContacts }) {
 
             recorder.ondataavailable = function (ev) {
                 dataArray.push(ev.data);
-                console.log(ev.data);
             }
             stop.addEventListener('mouseup', function (ev) {
                 recorder.stop();
                 e.target.src = voice_black;
-                //console.log(recorder.state);
             })
 
             recorder.onstop = function (ev) {
 
-                // blob of type mp3
 
-                console.log(dataArray, "stop");
-                // After fill up the chunk
-                // array make it empty
                 let audioData = new Blob(dataArray,
                     { 'type': 'audio/mp3/mp4;' });
 
-                // After fill up the chunk
-                // array make it empty
                 dataArray = [];
 
-                // Creating audio url with reference
-                // of created blob named 'audioData'
                 let audioSrc = window.URL
                     .createObjectURL(audioData);
 
 
-                // Creating audio url with reference
-                // of created blob named 'audioData'
 
                 var today = new Date();
                 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -94,7 +79,6 @@ function ChatPage({ users, addContacts }) {
     const changeChat = (contact) => {
         contacts.map((e) => {
             if (e.username == contact) {
-                console.log(e)
                 setMess(e.mem);
                 setContact(e);
             }
@@ -130,8 +114,6 @@ function ChatPage({ users, addContacts }) {
     }
 
     const addFriend = function (username) {
-        console.log("the user name isssss"+username);
-
         var flag = true, count = 0;
 
         if (username == user.username) {
@@ -184,7 +166,6 @@ function ChatPage({ users, addContacts }) {
 
     const sendVideo = (video) => {
         if (video !== undefined) {
-            console.log(video.src)
             var today = new Date();
             var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             var g = contacts.find(x => {
@@ -209,7 +190,6 @@ function ChatPage({ users, addContacts }) {
             var today = new Date();
             var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             var g = contacts.find(x => {
-                console.log(contact, x);
                 return x.username === contact.username
             });
             g.mem = g.mem.concat({
@@ -225,7 +205,6 @@ function ChatPage({ users, addContacts }) {
                     </img>
                 </a>, time: time
             }]);
-            console.log(newMess);
             setMess(newMess);
         }
     }
