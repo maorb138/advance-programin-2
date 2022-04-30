@@ -1,5 +1,5 @@
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import './ChatPage.css';
 import Contacts from './Contacts/Contacts';
@@ -19,15 +19,15 @@ import hasson from './../Image/welcome.mp3';
 
 
 function ChatPage({ users, addContacts }) {
-    // { sent: true, message: 'hey' },{ sent: true, message: {imageSent} },{ sent: true, message: {fileTest} },{ sent: true, message: {macarena} }
-    // { sent: false, message: 'hello1' }, { sent: true, message: 'hello2' }, { sent: true, message: 'hello3' }, { sent: false, message: 'hello4' }
-    const messages1 = [{ sent: false, message:<img src={imageSent} width='50' /> }, { sent: true, message:<video width="150" src={(macarena)} controls /> }, { sent: false, message: <a href={fileTest} download>
-    <img width="50" src={filedownload}>
-    </img>{fileTest.name}</a> }, { sent: true, message: <audio  src={hasson} width= "50" controls/> }];
-    const messages2=[]
-    const [user, setUser] = useState(useLocation().state);
-    const [messages, setMess] = useState(messages1);
+    const user1 = JSON.parse(localStorage.getItem('user'));
+    console.log(user1, '++++++++++++++++++++++');
+    const [user, setUser] = useState(user1);
+    const [messages, setMess] = useState(user.contacts && user.contacts[0].mem);
     const [contact, setContact] = useState(null);
+
+    useEffect(() => {
+        changeChat(contacts && user.contacts[0].username);
+    },[])
 
     function record(e) {
         console.log(e.target);
@@ -72,7 +72,7 @@ function ChatPage({ users, addContacts }) {
 
                 var today = new Date();
                 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                var g = user.contacts.find(x => x.username === contact.username);
+                var g = contacts.find(x => x.username === contact.username);
                 g.mem = g.mem.concat({ sent: true, message: <audio src={audioSrc} controls></audio>,time: time});
 
 
@@ -91,12 +91,12 @@ function ChatPage({ users, addContacts }) {
     //document.getElementsByClassName('mainChat')[0].scrollTop = document.getElementsByClassName('mainChat')[0].scrollHeight;
     console.log(contacts);
     const changeChat = (contact) => {
-        user.contacts.map((e) => {
+        contacts.map((e) => {
             if (e.username == contact) {
+                console.log(e)
                 setMess(e.mem);
                 setContact(e);
             }
-
         })
     }
      
@@ -111,7 +111,7 @@ function ChatPage({ users, addContacts }) {
         if (e.keyCode === 13 && message.value !== '') {
             newMess = messages.concat([{ sent: true, message: e.target.value , time: time}]);
             setMess(newMess);
-            var g = user.contacts.find(x => x.username === contact.username);
+            var g = contacts.find(x => x.username === contact.username);
             g.mem = g.mem.concat({ sent: true, message: e.target.value , time: time});
             g.last=({time:time,message:e.target.value});
             message.value = '';
@@ -120,7 +120,7 @@ function ChatPage({ users, addContacts }) {
         else if (e.target.tagName.toLowerCase() == 'button' && message.value !== '') {
             newMess = messages.concat([{ sent: true, message: message.value , time: time }]);
             setMess(newMess);
-            const g = user.contacts.find(x => x.username === contact.username);
+            const g = contacts.find(x => x.username === contact.username);
             g.mem = g.mem.concat([{ sent: true, message: message.value , time: time}]);
             g.last=({time:time,message:message.value});
             message.value = '';
@@ -162,7 +162,7 @@ function ChatPage({ users, addContacts }) {
         if (textFile !== undefined) {
             var today = new Date();
             var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-            var g = user.contacts.find(x => {
+            var g = contacts.find(x => {
                 return x.username === contact.username
             });
             g.mem = g.mem.concat({
@@ -186,7 +186,7 @@ function ChatPage({ users, addContacts }) {
             console.log(video.src)
             var today = new Date();
             var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-            var g = user.contacts.find(x => {
+            var g = contacts.find(x => {
                 return x.username === contact.username
             });
             g.mem = g.mem.concat({
@@ -207,7 +207,7 @@ function ChatPage({ users, addContacts }) {
         if (image !== undefined) {
             var today = new Date();
             var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-            var g = user.contacts.find(x => {
+            var g = contacts.find(x => {
                 console.log(contact, x);
                 return x.username === contact.username
             });
@@ -250,7 +250,7 @@ function ChatPage({ users, addContacts }) {
 
     return (
         <div className="chat1">
-            {user && < Contacts user={user} contacts={user.contacts} users={users} addFriend={addFriend} changeChat={changeChat} /> }
+            {user && < Contacts user={user} contacts={contacts} users={users} addFriend={addFriend} changeChat={changeChat} /> }
 
             <div className="mainChat">
                 <Messages messages={messages} img={user && user.image} />
