@@ -22,9 +22,11 @@ function ChatPage({ users, addContacts }) {
     const user1 = JSON.parse(localStorage.getItem('user'));
     console.log(user1, '++++++++++++++++++++++');
     const [user, setUser] = useState(user1);
-    const [messages, setMess] = useState(user.contacts && user.contacts[0].mem);
     const [contact, setContact] = useState(null);
-
+    const [contacts, setcontacts] = useState(user && user.contacts);
+    console.log(contacts);
+    const [messages, setMess] = useState(contacts && user.contacts[0].mem);
+    
     useEffect(() => {
         changeChat(contacts && user.contacts[0].username);
     },[])
@@ -86,7 +88,6 @@ function ChatPage({ users, addContacts }) {
         })
     }
 
-    const [contacts, setcontacts] = useState(user && user.contacts);
 
     //document.getElementsByClassName('mainChat')[0].scrollTop = document.getElementsByClassName('mainChat')[0].scrollHeight;
     console.log(contacts);
@@ -224,6 +225,7 @@ function ChatPage({ users, addContacts }) {
                     </img>
                 </a>, time: time
             }]);
+            console.log(newMess);
             setMess(newMess);
         }
     }
@@ -253,7 +255,7 @@ function ChatPage({ users, addContacts }) {
             {user && < Contacts user={user} contacts={contacts} users={users} addFriend={addFriend} changeChat={changeChat} /> }
 
             <div className="mainChat">
-                <Messages messages={messages} img={user && user.image} />
+                {contacts ? < Messages messages={messages} img={user && user.image} />:<div>hello new user</div>}
             </div>
 
             <div className="form-control1">
