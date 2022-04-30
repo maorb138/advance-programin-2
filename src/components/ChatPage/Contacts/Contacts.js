@@ -29,7 +29,9 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
     }
    
     const showContacts = contacts.map((friend) => {
-
+        const q = user.contacts.filter((x) => {
+            return x.username === friend.username;
+        })
         console.log(friend);
         
         return <li onClick={(e) => changeChat(friend.username)} className="list-group-item profile">
