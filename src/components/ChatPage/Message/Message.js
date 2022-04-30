@@ -2,13 +2,13 @@ import './Message.css';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Avatar from './../../Image/profile-picture-boy-1.jpeg';
-
+import imageSent from './../../Image/imageiconsend.png';
 function Message({sent,data,img,time}) {
-
+//    const d= <div dangerouslySetInnerHTML={{__html: data}} />
     if (sent) {
         return <div className="container lighter">
             <img src={img} className='right' alt="Avatar" ></img>
-          <h6> <p className='dataStyle'>{data}</p></h6> 
+          <h6> <p className='dataStyle'>{ data}</p></h6> 
             <span className="time-right">{time}</span>
         </div>
     } else {
