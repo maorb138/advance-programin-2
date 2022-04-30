@@ -5,6 +5,7 @@ import './../Sidebar/Sidebar.css';
 import './../style/PopupImg.css';
 import './../style/Modal.css';
 import { PopupImg } from './../Sidebar/Sidebar.js';
+import allusers from '../../DataBase/db';
 
 
 
@@ -12,8 +13,6 @@ import { PopupImg } from './../Sidebar/Sidebar.js';
 
 
 function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) {
-    const [_contacts,setcontacts] = useState(contacts);
-
     function getImage(user){
         var image;
         users.map((x)=>{
@@ -21,17 +20,13 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
         })
         return image;
     }
-
-    const callAddfriend = (username) => {
-        addFriend(username);
-        console.log(contacts, "***********************");
-        setcontacts(user.contacts);
-    }
    
     const showContacts = contacts.map((friend) => {
         const q = user.contacts.filter((x) => {
             return x.username === friend.username;
         })
+        const ken = q[0].mem[0];
+
         console.log(friend);
         
         return <li onClick={(e) => changeChat(friend.username)} className="list-group-item profile">
@@ -40,7 +35,7 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
                 <img className='imgcon' src={getImage(friend.username)} onClick={PopupImg}></img>
                { console.log(friend.last)}
                 <span className='lastM'>{friend.last&&friend.last.message}</span>
-                <time className='time'><span>{friend.last && friend.last.time}</span></time>
+                <time className='time'><span>{friend.last&&friend.last.time}</span></time>
                
         </div> 
            
@@ -58,9 +53,9 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
         moddd.style.display = "none";
       }
     }
-    }
-    const listContact = users.map((friend) => {
-        return <li><a href="#" onClick={(e) => callAddfriend(friend.username)}><img className="pImage" src={getImage(friend.username)}/> {friend.username }</a></li>
+   }
+   const listContact=contacts.map((friend)=>{
+    return <li><a href="#"onClick={(e) => addFriend(friend.username)}><img className="pImage" src={getImage(friend.username)}/> {friend.username }</a></li>
 });
     function Search(){
         var input, filter, ul, li, a, i;
