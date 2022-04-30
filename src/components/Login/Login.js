@@ -29,11 +29,13 @@ function Login(props) {
             return;
         }
         seterr('');
-        props.users.map((x) => {
-            if (username === x.username && password === x.password) {
-                console.log("yees you are login");
-                hist.push('/chat', x);
-                return;
+        props.users.map((user) => {
+            if (username === user.username && password === user.password) {
+                console.log("yees you are login", user);
+                localStorage.setItem('user', JSON.stringify(user));
+                console.log(localStorage);
+
+                hist.push('/chat');
             }
         
 
