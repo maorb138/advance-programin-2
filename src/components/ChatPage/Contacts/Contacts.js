@@ -114,12 +114,10 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
                 <div className="search">
                 <div className="searchInputs">
                 <input id='mySearch' type="text" placeholder="Search..." onKeyUp={Search}>
-                                </input>
-                                <div>
+                </input>
                 <ul id="myMenu">
                     {listContact}
-                                    </ul>
-                                    </div>
+                </ul>
                </div>
                 </div>
               </div>
