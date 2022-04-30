@@ -298,5 +298,6 @@ color: rgb(5, 14, 6);
     overflow-y:scroll;
     height:35%;
     position:absolute;
-    display:inline-block;
+    display:  inline;
+    justify-content:center;
 }
