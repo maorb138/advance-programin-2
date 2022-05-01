@@ -12,41 +12,43 @@ import './LogIn.css';
 function Login(props) {
     const hist = useHistory();
     const [err, seterr] = useState("");
-    const verifyUser = () => {
-        var username = document.getElementById("user").value;
-        var password = document.getElementById("floatingPassword").value;
-        var verify = document.getElementById("verify");
+    const verifyUser = (e) => {
+        if (e.keyCode === 13 || e.target.tagName.toLowerCase() == 'button') {
 
-        if (username === '' & password === '') {
-            seterr("type a username and password");
-            return;
-        } else if (username === '') {
-            seterr("type a username");
-            return;
-        }
-        else if (password === '') {
-            seterr("type a password");
-            return;
-        }
-        seterr('');
-        props.users.map((user) => {
-            if (username === user.username && password === user.password) {
-                console.log("yees you are login", user);
-                localStorage.setItem('user', JSON.stringify(user));
-                console.log(localStorage);
+            var username = document.getElementById("user").value;
+            var password = document.getElementById("floatingPassword").value;
 
-                hist.push('/chat');
+            if (username === '' & password === '') {
+                seterr("type a username and password");
+                return;
+            } else if (username === '') {
+                seterr("type a username");
+                return;
             }
-        
+            else if (password === '') {
+                seterr("type a password");
+                return;
+            }
+            seterr('');
+            props.users.map((user) => {
+                if (username === user.username && password === user.password) {
+                    console.log("yees you are login", user);
+                    localStorage.setItem('user', JSON.stringify(user));
+                    console.log(localStorage);
 
-        });
-        console.log(username, password);
-        console.log(props.users.length);
+                    hist.push('/chat');
+                }
+
+
+            });
+            console.log(username, password);
+            console.log(props.users.length);
+        }
 
     }
 
     return (
-        <div className="login">
+        <div onKeyDown={verifyUser} className="login">
             <img className='login_user' src={login_user}></img>
             <br></br>
             <h3> Login Your Account</h3>
