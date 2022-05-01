@@ -15,7 +15,7 @@ import textFileSend from './../Image/ib.png';
 import Message from '../ChatPage/Message/Message';
 
 const messages = [{ sent: false, message: 'hello world', time: '12:32' }, { sent: false, message: '<img src=' + imageSent + ' width="50" > </img>', time: '12:35' }, { sent: false, message: '<video width="150" src=' + macarena + ' controls ></video>', time: '12:40' }, {
-    sent: false, message: '<a href=' + fileTest + ' download><img width="50" src=' + filedownload + '></img>' +'fileTest' + '</a>', time: '12:46'
+    sent: false, message: '<a href=' + fileTest + ' download><img width="50" src=' + filedownload + '></img>' +'test.txt' + '</a>', time: '12:46'
 }, { sent: true, message: '<audio src=' +hasson+' width="50" controls > </audio>', time: '13:04' }];
 const lastMessage = { time: '13:04', message: "Recording..." };
 
