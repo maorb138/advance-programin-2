@@ -24,7 +24,6 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
 
     const callAddfriend = (username) => {
         addFriend(username);
-        console.log(contacts, "***********************");
         setcontacts(user.contacts);
     }
    
@@ -32,7 +31,6 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
         const q = user.contacts.filter((x) => {
             return x.username === friend.username;
         })
-        console.log(friend);
         
         return <li onClick={(e) => changeChat(friend.username)} className="list-group-item profile">
         <div className='contactProfile'> 
@@ -59,8 +57,8 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
       }
     }
     }
-    const listContact = users.map((friend) => {
-        return <li><a href="#" onClick={(e) => callAddfriend(friend.username)}><img className="pImage" src={getImage(friend.username)}/> {friend.username }</a></li>
+    const listContact = users.map((friend, key) => {
+        return <li><a href="#" key={key} onClick={(e) => callAddfriend(friend.username)}><img className="pImage" src={getImage(friend.username)}/> {friend.username }</a></li>
 });
     function Search(){
         var input, filter, ul, li, a, i;
@@ -114,13 +112,13 @@ function Contacts({ user, contacts, users, addFriend, addContact, changeChat }) 
                 <div className="search">
                 <div className="searchInputs">
                 <input id='mySearch' type="text" placeholder="Search..." onKeyUp={Search}>
-                </input>
+                                </input>
                 <ul id="myMenu">
                     {listContact}
-                </ul>
+                                    </ul>
+                                    </div>
                </div>
                 </div>
-              </div>
               
             </div>
           </div>
