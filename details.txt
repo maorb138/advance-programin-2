@@ -8,5 +8,5 @@ url for Repositorie https://github.com/maorb138/advance-programin-2.git
 
 
 שם משתמש המראה את כל סוגי ההודעות 
-avi
-סיסמה:1234
+elad
+סיסמה:Elad123456
